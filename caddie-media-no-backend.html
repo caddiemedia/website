@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caddie Media — Golf Course Social Media</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black:  #0C1409;
+  --green:  #0F1A0F;
+  --green2: #1A2E18;
+  --gold:   #B8962E;
+  --gold2:  #D4AE52;
+  --sand:   #E8E0CC;
+  --paper:  #F8F5EE;
+  --ink:    #1C1C18;
+  --muted:  #6A6860;
+  --rule:   rgba(28,28,24,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(248,245,238,0.92); backdrop-filter: blur(14px);
+  border-bottom: 0.5px solid var(--rule);
+}
+.logo { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.01em; }
+.logo em { font-style: italic; color: var(--gold); }
+.nav-mid { display: flex; gap: 2.5rem; }
+.nav-mid a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+.nav-mid a:hover { color: var(--ink); }
+.nav-cta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 1.5rem; background: var(--green); color: var(--sand); transition: opacity 0.2s; display: inline-block; }
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 58px); border-bottom: 0.5px solid var(--rule); }
+.hero-left { padding: 5rem 3rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 0.5px solid var(--rule); }
+.hero-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(44px, 5.5vw, 72px); font-weight: 400; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.85; max-width: 400px; margin-bottom: 2.5rem; }
+.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn-primary { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; background: var(--green); color: var(--sand); font-family: 'DM Sans', sans-serif; border: none; cursor: pointer; transition: opacity 0.2s; display: inline-block; }
+.btn-primary:hover { opacity: 0.85; }
+.btn-line { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; background: transparent; color: var(--ink); font-family: 'DM Sans', sans-serif; border: 0.5px solid var(--rule); cursor: pointer; transition: border-color 0.2s; display: inline-block; }
+.btn-line:hover { border-color: var(--ink); }
+.hero-right { background: var(--green); display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=900&q=80') center/cover; opacity: 0.35; }
+.hero-card { position: relative; z-index: 1; margin: 2rem; background: rgba(15,26,15,0.82); border: 0.5px solid rgba(184,150,46,0.3); backdrop-filter: blur(8px); padding: 2rem; }
+.hero-card-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold2); margin-bottom: 1.25rem; }
+.hero-card-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--sand); line-height: 1.2; margin-bottom: 0.5rem; }
+.hero-card-sub { font-size: 13px; color: rgba(232,224,204,0.55); margin-bottom: 1.5rem; }
+.fake-ig { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.fake-ig-cell { aspect-ratio: 1; opacity: 0.7; }
+.fake-ig-cell.c1 { background: linear-gradient(135deg,#1a3a18,#0a1a0a); }
+.fake-ig-cell.c2 { background: linear-gradient(135deg,#2a1a08,#1a0e04); }
+.fake-ig-cell.c3 { background: linear-gradient(135deg,#0a1a2a,#040e18); }
+.fake-ig-cell.c4 { background: linear-gradient(135deg,#1a2a14,#0e1a0a); }
+.fake-ig-cell.c5 { background: linear-gradient(135deg,#2a2010,#1a1408); }
+.fake-ig-cell.c6 { background: linear-gradient(135deg,#0a1e1a,#04120e); }
+
+/* TICKER */
+.ticker-bar { background: var(--green); overflow: hidden; border-bottom: 0.5px solid rgba(184,150,46,0.15); }
+.ticker-inner { display: flex; width: max-content; animation: scroll-left 32s linear infinite; padding: 0.8rem 0; }
+.ticker-inner span { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(232,224,204,0.5); padding: 0 2.5rem; white-space: nowrap; }
+.ticker-inner b { color: var(--gold2); font-weight: 400; }
+@keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* INTRO */
+.intro { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 0.5px solid var(--rule); }
+.intro-left { padding: 4rem 3rem; border-right: 0.5px solid var(--rule); }
+.intro-right { padding: 4rem 3rem; background: var(--green); color: var(--sand); }
+.section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.intro-right .section-label { color: var(--gold2); }
+.intro-h { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; line-height: 1.1; margin-bottom: 1.25rem; }
+.intro-right .intro-h { color: var(--sand); }
+.intro-p { font-size: 14px; color: var(--muted); line-height: 1.85; }
+.intro-right .intro-p { color: rgba(232,224,204,0.62); }
+.honest-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
+.honest-item { display: flex; gap: 0.85rem; font-size: 14px; color: var(--muted); align-items: flex-start; line-height: 1.6; }
+.honest-check { color: var(--gold); flex-shrink: 0; font-size: 12px; margin-top: 3px; }
+.intro-right .honest-item { color: rgba(232,224,204,0.65); }
+
+/* PORTFOLIO */
+.portfolio-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.portfolio-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: inline-block; padding: 3px 10px; border: 0.5px solid var(--rule); margin-bottom: 0.5rem; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.pcard { background: white; border: 0.5px solid var(--rule); overflow: hidden; }
+.pcard-img { height: 220px; background-size: cover; background-position: center; position: relative; }
+.pcard-tag { position: absolute; top: 1rem; left: 1rem; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--green); color: var(--gold2); padding: 4px 10px; }
+.pcard-body { padding: 1.5rem; }
+.pcard-type { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+.pcard-title { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 0.6rem; line-height: 1.2; }
+.pcard-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.pcard-deliverables { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pcard-tag2 { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border: 0.5px solid var(--rule); color: var(--muted); }
+.portfolio-note { margin-top: 2rem; padding: 1.25rem 1.5rem; border: 0.5px solid var(--rule); font-size: 13px; color: var(--muted); line-height: 1.7; background: white; }
+.portfolio-note strong { color: var(--ink); }
+
+/* SERVICES */
+.services-section { border-bottom: 0.5px solid var(--rule); }
+.services-header { padding: 4rem 3rem 2rem; }
+.services-table { width: 100%; border-collapse: collapse; }
+.services-table tr { border-top: 0.5px solid var(--rule); }
+.services-table tr:hover td { background: var(--paper); }
+.services-table td { padding: 1.5rem 3rem; vertical-align: top; }
+.svc-name { font-size: 15px; font-weight: 500; }
+.svc-desc { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+.svc-price { font-size: 14px; font-weight: 500; white-space: nowrap; text-align: right; }
+.svc-note { font-size: 11px; color: var(--muted); text-align: right; margin-top: 2px; }
+
+/* PRICING */
+.pricing-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.pkg { border: 0.5px solid var(--rule); padding: 2.5rem 2rem; background: white; transition: transform 0.2s, box-shadow 0.2s; }
+.pkg:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.07); }
+.pkg.featured { background: var(--green); border-color: var(--gold); color: var(--sand); }
+.pkg-badge { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--green); padding: 3px 10px; display: inline-block; margin-bottom: 1.25rem; font-weight: 500; }
+.pkg-tier { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+.pkg.featured .pkg-tier { color: rgba(232,224,204,0.45); }
+.pkg-price { font-family: 'DM Serif Display', serif; font-size: 52px; color: var(--gold); line-height: 1; }
+.pkg-mo { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
+.pkg.featured .pkg-mo { color: rgba(232,224,204,0.4); }
+.pkg-features { display: flex; flex-direction: column; gap: 0.65rem; }
+.pf { font-size: 13px; color: var(--muted); display: flex; gap: 9px; line-height: 1.5; }
+.pkg.featured .pf { color: rgba(232,224,204,0.68); }
+.pf::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+.pkg-btn { display: block; text-align: center; margin-top: 2rem; padding: 0.8rem; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: 0.5px solid var(--rule); color: var(--ink); transition: all 0.2s; }
+.pkg-btn:hover { background: var(--green); color: var(--sand); border-color: var(--green); }
+.pkg.featured .pkg-btn { background: var(--gold); color: var(--green); border-color: var(--gold); }
+.pkg.featured .pkg-btn:hover { opacity: 0.88; }
+
+/* CUSTOM BUILDER */
+.builder-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.builder-intro { max-width: 600px; margin-bottom: 3rem; }
+.builder-box { border: 0.5px solid var(--rule); background: white; }
+
+/* Builder header */
+.builder-head { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 2rem 2.5rem; border-bottom: 0.5px solid var(--rule); background: var(--paper); }
+.builder-head-title { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; }
+.builder-head-sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.builder-total-wrap { text-align: right; }
+.builder-total-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.builder-total-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--gold); line-height: 1; transition: all 0.25s; }
+.builder-total-mo { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* Category headers */
+.builder-category { padding: 0.75rem 2.5rem; background: var(--paper); border-bottom: 0.5px solid var(--rule); display: flex; align-items: center; gap: 0.75rem; }
+.builder-category-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.builder-category-line { flex: 1; height: 0.5px; background: var(--rule); }
+
+/* Builder rows */
+.brow { display: grid; grid-template-columns: 1fr 100px 44px; gap: 1.5rem; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 0.5px solid var(--rule); transition: background 0.15s; cursor: pointer; }
+.brow:last-child { border-bottom: none; }
+.brow:hover { background: #FDFBF6; }
+.brow.selected { background: rgba(184,150,46,0.04); }
+.brow-name { font-size: 14px; font-weight: 500; }
+.brow-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+.brow-price { font-size: 13px; font-weight: 500; color: var(--muted); text-align: right; transition: color 0.2s; white-space: nowrap; }
+.brow-price.on { color: var(--gold); }
+.tog { position: relative; width: 40px; height: 22px; pointer-events: none; }
+.tog input { display: none; }
+.tog-track { position: absolute; inset: 0; background: #ddd; border-radius: 22px; transition: 0.2s; }
+.tog input:checked + .tog-track { background: var(--green); }
+.tog-track::before { content: ''; position: absolute; width: 16px; height: 16px; top: 3px; left: 3px; background: white; border-radius: 50%; transition: 0.2s; }
+.tog input:checked + .tog-track::before { transform: translateX(18px); }
+
+/* Summary panel */
+.builder-summary { display: none; border-top: 0.5px solid var(--rule); }
+.builder-summary.show { display: block; }
+.summary-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.summary-left { padding: 2rem 2.5rem; border-right: 0.5px solid var(--rule); }
+.summary-right { padding: 2rem 2.5rem; background: var(--green); }
+.summary-title { font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 400; margin-bottom: 1rem; }
+.summary-right .summary-title { color: var(--sand); }
+.summary-lines { display: flex; flex-direction: column; gap: 0; }
+.sline { display: flex; justify-content: space-between; font-size: 13px; padding: 0.5rem 0; border-bottom: 0.5px solid var(--rule); }
+.sline:last-child { border-bottom: none; }
+.sline-price { color: var(--gold); font-weight: 500; }
+.summary-total-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1rem; margin-top: 1rem; border-top: 1px solid var(--ink); }
+.summary-total-lbl { font-size: 13px; font-weight: 500; }
+.summary-total-num { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--gold); }
+.summary-right-inner { display: flex; flex-direction: column; gap: 1rem; }
+.summary-note { font-size: 13px; color: rgba(232,224,204,0.6); line-height: 1.75; }
+.summary-note strong { color: var(--gold2); display: block; margin-bottom: 0.25rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.summary-actions { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+.summary-btn-email { padding: 0.85rem 1.5rem; background: var(--gold); color: var(--green); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500; border: none; cursor: pointer; text-align: center; display: block; transition: opacity 0.2s; }
+.summary-btn-email:hover { opacity: 0.88; }
+.summary-btn-reset { padding: 0.85rem 1.5rem; background: transparent; color: rgba(232,224,204,0.5); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; border: 0.5px solid rgba(232,224,204,0.2); cursor: pointer; text-align: center; transition: all 0.2s; }
+.summary-btn-reset:hover { color: var(--sand); border-color: rgba(232,224,204,0.4); }
+
+/* Builder footer */
+.builder-foot { padding: 1.5rem 2.5rem; border-top: 0.5px solid var(--rule); display: flex; justify-content: space-between; align-items: center; background: var(--paper); }
+.builder-foot-note { font-size: 12px; color: var(--muted); }
+.builder-foot-btn { padding: 0.85rem 2rem; background: var(--green); color: var(--sand); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; border: none; cursor: pointer; transition: opacity 0.2s; }
+.builder-foot-btn:hover { opacity: 0.85; }
+.builder-foot-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Empty state */
+.builder-empty { padding: 2rem 2.5rem; text-align: center; font-size: 13px; color: var(--muted); border-top: 0.5px solid var(--rule); display: none; }
+.builder-empty.show { display: block; }
+
+/* PROCESS */
+.process-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 2.5rem; border: 0.5px solid var(--rule); }
+.pstep { padding: 2.25rem 1.75rem; border-right: 0.5px solid var(--rule); }
+.pstep:last-child { border-right: none; }
+.pstep-n { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--gold); line-height: 1; margin-bottom: 1rem; }
+.pstep-title { font-size: 14px; font-weight: 500; margin-bottom: 0.5rem; }
+.pstep-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* FAQ */
+.faq-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.faq-wrap { max-width: 680px; margin-top: 2.5rem; }
+.faq-item { border-bottom: 0.5px solid var(--rule); }
+.faq-item:first-child { border-top: 0.5px solid var(--rule); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; cursor: pointer; font-size: 14px; font-weight: 500; gap: 1rem; user-select: none; }
+.faq-icon { font-size: 20px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.3s; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { font-size: 13px; color: var(--muted); line-height: 1.85; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.4rem; }
+
+/* CONTACT */
+.contact-section { padding: 5rem 3rem; background: var(--green); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-left h2 { font-family: 'DM Serif Display', serif; font-size: 40px; color: var(--sand); font-weight: 400; line-height: 1.1; margin-bottom: 1rem; }
+.contact-left p { font-size: 15px; color: rgba(232,224,204,0.6); font-weight: 300; line-height: 1.85; margin-bottom: 2.5rem; }
+.contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
+.cd-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,224,204,0.4); margin-bottom: 2px; }
+.cd-val { font-size: 15px; color: var(--gold2); }
+.cd-val a { color: var(--gold2); }
+.contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.cf-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,224,204,0.4); display: block; margin-bottom: 0.4rem; }
+.cf-input { width: 100%; padding: 0.85rem 1rem; border: 0.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: var(--sand); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
+.cf-input::placeholder { color: rgba(232,224,204,0.28); }
+.cf-input:focus { border-color: rgba(184,150,46,0.5); }
+textarea.cf-input { resize: vertical; min-height: 110px; }
+.cf-select { width: 100%; padding: 0.85rem 1rem; border: 0.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: var(--sand); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; }
+.cf-select option { color: var(--ink); background: white; }
+.cf-submit { padding: 1rem 2rem; background: var(--gold); color: var(--green); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: opacity 0.2s; }
+.cf-submit:hover { opacity: 0.88; }
+.cf-success { display: none; padding: 1.25rem; border: 0.5px solid rgba(184,150,46,0.4); font-size: 13px; color: rgba(232,224,204,0.65); line-height: 1.7; }
+.cf-success.show { display: block; }
+
+/* FOOTER */
+footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--sand); }
+.footer-logo em { font-style: italic; color: var(--gold); }
+.footer-note { font-size: 12px; color: rgba(232,224,204,0.3); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-mid { display: none; }
+  .hero, .intro, .contact-grid, .summary-inner { grid-template-columns: 1fr; }
+  .hero-right { min-height: 280px; }
+  .intro-left { border-right: none; border-bottom: 0.5px solid var(--rule); }
+  .portfolio-grid, .pricing-grid, .process-steps { grid-template-columns: 1fr; }
+  .pstep { border-right: none; border-bottom: 0.5px solid var(--rule); }
+  .cf-row { grid-template-columns: 1fr; }
+  .brow { grid-template-columns: 1fr 80px 40px; padding: 1rem 1.5rem; gap: 1rem; }
+  .builder-category, .builder-foot, .summary-left, .summary-right { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .builder-head { padding: 1.5rem; }
+  .portfolio-section, .services-section .services-header, .pricing-section, .builder-section, .process-section, .faq-section, .contact-section { padding: 3.5rem 1.5rem; }
+  .services-table td { padding: 1.25rem 1.5rem; }
+  .summary-left { border-right: none; border-bottom: 0.5px solid var(--rule); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Caddie<em>Media</em></div>
+  <div class="nav-mid">
+    <a href="#content">Content</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:ferrisiliescu@gmail.com?subject=Caddie%20Media%20Inquiry" class="nav-cta">Email us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag reveal">Social media for golf courses — Las Vegas</div>
+    <h1 class="reveal">Social media<br>management for<br><em>golf courses</em>.</h1>
+    <p class="hero-sub reveal">Caddie Media handles content creation, short-form video, posting, and social media management so your team can stay focused on running the course.</p>
+    <div class="hero-btns reveal">
+      <a href="mailto:ferrisiliescu@gmail.com?subject=Caddie%20Media%20Inquiry" class="btn-primary">Email us</a>
+      <a href="#pricing" class="btn-line">See packages</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"></div>
+    <div class="hero-card reveal">
+      <div class="hero-card-label">What your feed could look like</div>
+      <div class="hero-card-title">A consistent, polished presence that keeps your course top of mind.</div>
+      <div class="hero-card-sub">Photos, Reels, captions — all handled.</div>
+      <div class="fake-ig">
+        <div class="fake-ig-cell c1"></div>
+        <div class="fake-ig-cell c2"></div>
+        <div class="fake-ig-cell c3"></div>
+        <div class="fake-ig-cell c4"></div>
+        <div class="fake-ig-cell c5"></div>
+        <div class="fake-ig-cell c6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span><b>Instagram</b></span><span><b>Facebook</b></span><span><b>TikTok</b></span><span><b>Reels</b></span><span>Golf courses</span><span>Country clubs</span><span>Driving ranges</span><span>Restaurants</span><span>Resorts</span><span>Content creation</span><span>Scheduling</span><span>Community management</span><span>Monthly reporting</span>
+    <span><b>Instagram</b></span><span><b>Facebook</b></span><span><b>TikTok</b></span><span><b>Reels</b></span><span>Golf courses</span><span>Country clubs</span><span>Driving ranges</span><span>Restaurants</span><span>Resorts</span><span>Content creation</span><span>Scheduling</span><span>Community management</span><span>Monthly reporting</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro reveal">
+  <div class="intro-left">
+    <div class="section-label">Who we are</div>
+    <div class="intro-h">A focused agency.<br>Built for golf.</div>
+    <p class="intro-p">We're Caden and Caleb, two people who know social media and know golf. Caddie Media is built specifically for courses in the Las Vegas area that want a consistent, professional presence without adding work to their staff.</p>
+    <p class="intro-p" style="margin-top:0.85rem;">Caden handles everything on-site — shoots, meetings, and client relationships. Caleb leads editing and strategy remotely. Two people, fully focused on your account.</p>
+    <div class="honest-list">
+      <div class="honest-item"><span class="honest-check">◆</span>No long-term contracts — month-to-month</div>
+      <div class="honest-item"><span class="honest-check">◆</span>Content calendar approval before anything goes live</div>
+      <div class="honest-item"><span class="honest-check">◆</span>One point of contact, always reachable</div>
+    </div>
+  </div>
+  <div class="intro-right">
+    <div class="section-label">Why now</div>
+    <div class="intro-h">Golf courses are underserved on social. That's the opportunity.</div>
+    <p class="intro-p">Many courses have strong in-person experiences but struggle to show that same experience consistently online. That gap creates an opportunity to stay visible with local golfers, event planners, and guests.</p>
+    <p class="intro-p" style="margin-top:0.85rem;">Scenic fairways, course conditions, tournament moments, clubhouse atmosphere, and player experiences all translate well into social content. Most courses already have the moments — they just need a system for capturing and sharing them.</p>
+    <div class="honest-list" style="margin-top:1.5rem;">
+      <div class="honest-item"><span class="honest-check">◆</span>Golf is one of the most visual niches on social media</div>
+      <div class="honest-item"><span class="honest-check">◆</span>Consistent content helps courses stay top of mind between visits</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT OPPORTUNITIES -->
+<section class="portfolio-section reveal" id="content">
+  <div class="section-label">What we create</div>
+  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Content built around the moments your course already has.</h2>
+  <p style="font-size:14px; color:var(--muted); max-width:560px; line-height:1.85;">We focus on practical, repeatable content that helps golfers understand the experience of playing your course before they ever book a tee time.</p>
+  <div class="portfolio-grid">
+    <div class="pcard"><div class="pcard-body"><div class="pcard-type">Course content</div><div class="pcard-title">Fairways, greens, and conditions</div><div class="pcard-desc">Photos and short videos that show the course, scenery, hole features, seasonal conditions, and the day-to-day playing experience.</div></div></div>
+    <div class="pcard"><div class="pcard-body"><div class="pcard-type">Events & tournaments</div><div class="pcard-title">Promotions and recaps</div><div class="pcard-desc">Content for outings, tournaments, leagues, special events, and recap posts that help turn one event into weeks of useful social content.</div></div></div>
+    <div class="pcard"><div class="pcard-body"><div class="pcard-type">Club experience</div><div class="pcard-title">People, staff, and atmosphere</div><div class="pcard-desc">Posts highlighting the clubhouse, food and beverage, staff, golfers, lessons, and the small details that make the course memorable.</div></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header reveal">
+    <div class="section-label">Services</div>
+    <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Everything, or just what you need.</h2>
+    <p style="font-size:14px; color:var(--muted); max-width:480px; line-height:1.85;">Every service below is available individually or as part of a monthly package. Most courses start with a simple package, then adjust as goals become clearer.</p>
+  </div>
+  <table class="services-table reveal">
+    <tbody>
+      <tr><td><div class="svc-name">Content creation</div><div class="svc-desc">On-site photo and video shoot at your course — fairways, clubhouse, events, atmosphere.</div></td><td><div class="svc-price">Included in Growth+</div><div class="svc-note">1 shoot per month</div></td></tr>
+      <tr><td><div class="svc-name">Post scheduling</div><div class="svc-desc">Captions written and posts scheduled. You approve the content calendar before anything goes live.</div></td><td><div class="svc-price">All packages</div><div class="svc-note">8–20+ posts/month</div></td></tr>
+      <tr><td><div class="svc-name">Short-form video (Reels & TikTok)</div><div class="svc-desc">Edited short-form videos optimized for Instagram Reels and TikTok — the highest-growth format in golf.</div></td><td><div class="svc-price">Included in Growth+</div><div class="svc-note">4–8 videos/month</div></td></tr>
+      <tr><td><div class="svc-name">Community management</div><div class="svc-desc">Daily monitoring and replies to comments and DMs within 24 hours on your behalf.</div></td><td><div class="svc-price">Growth & Premium</div><div class="svc-note">All active platforms</div></td></tr>
+      <tr><td><div class="svc-name">Monthly performance report</div><div class="svc-desc">Follower growth, reach, and engagement delivered to your inbox every month.</div></td><td><div class="svc-price">All packages</div><div class="svc-note">Included always</div></td></tr>
+      <tr><td><div class="svc-name">YouTube Shorts</div><div class="svc-desc">Repurposed vertical video for YouTube Shorts — extends reach with no additional shooting required.</div></td><td><div class="svc-price">Premium only</div><div class="svc-note">Add-on available</div></td></tr>
+      <tr><td><div class="svc-name">Paid ads management</div><div class="svc-desc">Facebook and Instagram ad campaigns — targeting, creative, and optimization. Ad spend billed separately.</div></td><td><div class="svc-price">Premium only</div><div class="svc-note">+ % of ad spend</div></td></tr>
+      <tr><td><div class="svc-name">Account setup & audit</div><div class="svc-desc">One-time profile optimization across all platforms — bios, photos, highlights, and link-in-bio.</div></td><td><div class="svc-price">$200</div><div class="svc-note">One-time fee</div></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section reveal" id="pricing">
+  <div class="section-label">Packages</div>
+  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Simple, flat monthly rates.</h2>
+  <p style="font-size:14px; color:var(--muted); max-width:480px; line-height:1.85;">No long-term contracts. Month-to-month agreements with 14 days notice to cancel.</p>
+  <div class="pricing-grid">
+    <div class="pkg">
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-price">$650</div>
+      <div class="pkg-mo">per month</div>
+      <div class="pkg-features">
+        <div class="pf">8 posts per month</div>
+        <div class="pf">Instagram & Facebook</div>
+        <div class="pf">Captions written & scheduled</div>
+        <div class="pf">Content calendar approval</div>
+        <div class="pf">Monthly performance report</div>
+      </div>
+      <a href="#contact" class="pkg-btn">Get started</a>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-badge">Most popular</div>
+      <div class="pkg-tier">Growth</div>
+      <div class="pkg-price">$1,200</div>
+      <div class="pkg-mo">per month</div>
+      <div class="pkg-features">
+        <div class="pf">Everything in Starter</div>
+        <div class="pf">16 posts per month</div>
+        <div class="pf">Instagram, Facebook & TikTok</div>
+        <div class="pf">Monthly on-site content shoot</div>
+        <div class="pf">4 Reels or TikTok videos</div>
+        <div class="pf">Comment & DM management</div>
+      </div>
+      <a href="#contact" class="pkg-btn">Get started</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-tier">Premium</div>
+      <div class="pkg-price">$2,000</div>
+      <div class="pkg-mo">per month</div>
+      <div class="pkg-features">
+        <div class="pf">Everything in Growth</div>
+        <div class="pf">20+ posts per month</div>
+        <div class="pf">All platforms + YouTube Shorts</div>
+        <div class="pf">Two on-site shoots per month</div>
+        <div class="pf">8 Reels or TikTok videos</div>
+        <div class="pf">Paid ads management</div>
+        <div class="pf">Weekly performance reports</div>
+      </div>
+      <a href="#contact" class="pkg-btn">Get started</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section reveal" id="process">
+  <div class="section-label">How it works</div>
+  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.5rem;">From first conversation to first post.</h2>
+  <div class="process-steps">
+    <div class="pstep">
+      <div class="pstep-n">1</div>
+      <div class="pstep-title">Quick conversation</div>
+      <div class="pstep-desc">We learn about your course, current social media, events, and goals so we can understand where better content could help most.</div>
+    </div>
+    <div class="pstep">
+      <div class="pstep-n">2</div>
+      <div class="pstep-title">Choose your services</div>
+      <div class="pstep-desc">Pick a package or build your own. We send a one-page proposal and a simple agreement within 24 hours.</div>
+    </div>
+    <div class="pstep">
+      <div class="pstep-n">3</div>
+      <div class="pstep-title">Onboarding</div>
+      <div class="pstep-desc">We get access to your accounts, learn your brand, and share a content calendar for month one. You approve everything before it goes live.</div>
+    </div>
+    <div class="pstep">
+      <div class="pstep-n">4</div>
+      <div class="pstep-title">Ongoing</div>
+      <div class="pstep-desc">Shoots, edits, posts, and engagement — handled every week. Monthly report delivered to your inbox.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section reveal" id="faq">
+  <div class="section-label">Questions</div>
+  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; margin-bottom:0.5rem;">FAQ</h2>
+  <div class="faq-wrap">
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">Do I have to commit to a long-term contract? <span class="faq-icon">+</span></div>
+      <div class="faq-a">No. Everything is month-to-month. Cancel with 14 days written notice, no questions asked. We'd rather keep clients because the work is good, not because they're locked in.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you need to visit the course in person? <span class="faq-icon">+</span></div>
+      <div class="faq-a">For packages that include content creation, yes — we visit your course once a month to shoot photos and video. We're based in Las Vegas and work with courses in the area. For scheduling-only packages, we can work with assets you already have.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I see posts before they go live? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Always. We build a content calendar at the start of each month and share it with you for approval. Nothing gets posted without your sign-off. You have 48 hours to request changes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What if I already have someone posting for us? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We can work alongside your existing team or take over entirely — whatever makes more sense. Some clients hand everything to us, others just want content creation and keep posting themselves.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How quickly will we see results? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Most accounts see measurable engagement improvement within 30 days when posting becomes consistent. Follower growth typically accelerates in months 2 and 3. We share data every month so you can see exactly what's happening.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <div class="section-label" style="color:var(--gold2);">Get in touch</div>
+      <h2>Email us about your course.</h2>
+      <p>Tell us where you're at and what you're looking for. We'll review your current presence and recommend a practical next step — no pressure.</p>
+      <div class="contact-details">
+        <div><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:ferrisiliescu@gmail.com">ferrisiliescu@gmail.com</a></div></div>
+        <div><div class="cd-label">Based in</div><div class="cd-val">Las Vegas, NV</div></div>
+        <div><div class="cd-label">Response time</div><div class="cd-val">Within one business day</div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form" id="cForm">
+        <div class="cf-row">
+          <div><label class="cf-label">Your name</label><input class="cf-input" id="cfName" placeholder="David Enyeart"></div>
+          <div><label class="cf-label">Course name</label><input class="cf-input" id="cfCourse" placeholder="Desert Willow Golf Course"></div>
+        </div>
+        <div><label class="cf-label">Email</label><input class="cf-input" id="cfEmail" type="email" placeholder="david@yourclub.com"></div>
+        <div>
+          <label class="cf-label">I'm interested in</label>
+          <select class="cf-select cf-input" id="cfInterest">
+            <option>Starter package — $650/mo</option>
+            <option>Growth package — $1,200/mo</option>
+            <option>Premium package — $2,000/mo</option>
+            <option>Custom package</option>
+            <option>Not sure yet — looking for a recommendation</option>
+          </select>
+        </div>
+        <div><label class="cf-label">Anything else</label><textarea class="cf-input" id="cfNotes" placeholder="Current social accounts, goals, questions — anything helps."></textarea></div>
+        <button class="cf-submit" id="cfSubmitBtn" onclick="submitContact()">Open email draft →</button>
+        <div id="cfError" style="display:none; font-size:12px; color:#e07a5f; margin-top:0.4rem;"></div>
+      </div>
+      <div class="cf-success" id="cSuccess">
+        <strong style="display:block; color:var(--gold2); margin-bottom:0.4rem;">Email draft opened.</strong>
+        Send the email from your mail app and we’ll reply within one business day with a recommendation.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Caddie<em>Media</em></div>
+  <div class="footer-note">© 2025 Caddie Media · Las Vegas, NV · ferrisiliescu@gmail.com</div>
+</footer>
+
+<script>
+// Scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// Hero fade in
+setTimeout(() => {
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 100);
+  });
+}, 100);
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Contact form — no backend required. This opens a pre-filled email draft.
+function submitContact() {
+  const name = document.getElementById('cfName').value.trim();
+  const course = document.getElementById('cfCourse').value.trim();
+  const email = document.getElementById('cfEmail').value.trim();
+  const interest = document.getElementById('cfInterest').value;
+  const notes = document.getElementById('cfNotes').value.trim();
+  const errorEl = document.getElementById('cfError');
+
+  if (!name || !email) {
+    errorEl.textContent = 'Please fill in at least your name and email.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  errorEl.style.display = 'none';
+
+  const subject = encodeURIComponent(`Caddie Media Inquiry${course ? ' — ' + course : ''}`);
+  const body = encodeURIComponent(
+`Hi Caden,
+
+I'm interested in learning more about Caddie Media.
+
+Name: ${name}
+Course: ${course || 'Not provided'}
+Email: ${email}
+Interest: ${interest}
+
+Notes:
+${notes || 'No additional notes provided.'}
+
+Thank you.`
+  );
+
+  window.location.href = `mailto:ferrisiliescu@gmail.com?subject=${subject}&body=${body}`;
+
+  document.getElementById('cForm').style.display = 'none';
+  document.getElementById('cSuccess').classList.add('show');
+}
+</script>
+</body>
+</html>
