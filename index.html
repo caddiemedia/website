@@ -305,17 +305,9 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
   <div class="hero-right">
     <div class="hero-img"></div>
     <div class="hero-card reveal">
-      <div class="hero-card-label">What your feed could look like</div>
-      <div class="hero-card-title">A consistent, polished presence that keeps your course top of mind.</div>
-      <div class="hero-card-sub">Photos, Reels, captions — all handled.</div>
-      <div class="fake-ig">
-        <div class="fake-ig-cell c1"></div>
-        <div class="fake-ig-cell c2"></div>
-        <div class="fake-ig-cell c3"></div>
-        <div class="fake-ig-cell c4"></div>
-        <div class="fake-ig-cell c5"></div>
-        <div class="fake-ig-cell c6"></div>
-      </div>
+      <div class="hero-card-label">Built for golf courses</div>
+      <div class="hero-card-title">Course content, short-form video, captions, scheduling, and reporting — handled.</div>
+      <div class="hero-card-sub">We help capture course conditions, player experience, events, tournaments, and clubhouse moments so your team can stay focused on running the course.</div>
     </div>
   </div>
 </section>
@@ -434,15 +426,15 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
 <section class="builder-section reveal" id="builder">
   <div class="builder-intro">
     <div class="section-label">Custom package</div>
-    <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Only pay for what you actually want.</h2>
-    <p style="font-size:14px; color:var(--muted); line-height:1.85;">Toggle services on or off. Your monthly total updates live. When you're ready, generate a quote and email it directly to us — we'll follow up within one business day.</p>
+    <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Need more than a standard package?</h2>
+    <p style="font-size:14px; color:var(--muted); line-height:1.85;">Custom packages are built for courses that need more than our Premium plan. Select the services you want and generate a detailed email quote — we'll follow up within 1–2 business days.</p>
   </div>
 
   <div class="builder-box">
     <div class="builder-head">
       <div>
         <div class="builder-head-title">Build your package</div>
-        <div class="builder-head-sub">Click any row to add or remove a service.</div>
+        <div class="builder-head-sub">Click any row to add or remove a service. Custom quotes are priced above standard packages.</div>
       </div>
       <div class="builder-total-wrap">
         <div class="builder-total-lbl">Monthly total</div>
@@ -451,24 +443,35 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       </div>
     </div>
 
+    <!-- Strategy -->
+    <div class="builder-category">
+      <span class="builder-category-label">Custom Strategy</span>
+      <div class="builder-category-line"></div>
+    </div>
+    <div class="brow selected" onclick="toggleRow(this)" data-price="650" data-name="Custom strategy & account management" data-label="$650/mo">
+      <div><div class="brow-name">Custom strategy & account management</div><div class="brow-desc">Dedicated content planning, account coordination, and custom monthly direction beyond a standard package</div></div>
+      <div class="brow-price on">$650/mo</div>
+      <label class="tog"><input type="checkbox" checked><span class="tog-track"></span></label>
+    </div>
+
     <!-- Content -->
     <div class="builder-category">
       <span class="builder-category-label">Content</span>
       <div class="builder-category-line"></div>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="200" data-name="Content creation" data-label="$200/mo">
-      <div><div class="brow-name">Content creation</div><div class="brow-desc">On-site photo and video shoot at your course, once per month</div></div>
-      <div class="brow-price">$200/mo</div>
+    <div class="brow" onclick="toggleRow(this)" data-price="600" data-name="Monthly on-site content shoot" data-label="$600/mo">
+      <div><div class="brow-name">Monthly on-site content shoot</div><div class="brow-desc">On-site photo and video shoot at your course, once per month</div></div>
+      <div class="brow-price">$600/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="150" data-name="Short-form video — 4 videos" data-label="$150/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="500" data-name="Short-form video — 4 videos" data-label="$500/mo">
       <div><div class="brow-name">Short-form video — 4 videos</div><div class="brow-desc">Reels and TikToks edited and optimized for reach</div></div>
-      <div class="brow-price">$150/mo</div>
+      <div class="brow-price">$500/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="250" data-name="Short-form video — 8 videos" data-label="$250/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="900" data-name="Short-form video — 8 videos" data-label="$900/mo">
       <div><div class="brow-name">Short-form video — 8 videos</div><div class="brow-desc">Double the output — ideal for Premium-tier clients</div></div>
-      <div class="brow-price">$250/mo</div>
+      <div class="brow-price">$900/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
@@ -477,19 +480,19 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       <span class="builder-category-label">Posting & Scheduling</span>
       <div class="builder-category-line"></div>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="150" data-name="Post scheduling — 8 posts (Instagram & Facebook)" data-label="$150/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="500" data-name="Post scheduling — 8 posts (Instagram & Facebook)" data-label="$500/mo">
       <div><div class="brow-name">Post scheduling — 8 posts</div><div class="brow-desc">Instagram & Facebook, captions written and scheduled</div></div>
-      <div class="brow-price">$150/mo</div>
+      <div class="brow-price">$500/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="250" data-name="Post scheduling — 16 posts (Instagram, Facebook & TikTok)" data-label="$250/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="850" data-name="Post scheduling — 16 posts (Instagram, Facebook & TikTok)" data-label="$850/mo">
       <div><div class="brow-name">Post scheduling — 16 posts</div><div class="brow-desc">Instagram, Facebook & TikTok, captions written and scheduled</div></div>
-      <div class="brow-price">$250/mo</div>
+      <div class="brow-price">$850/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="350" data-name="Post scheduling — 20+ posts (all platforms)" data-label="$350/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="1100" data-name="Post scheduling — 20+ posts (all platforms)" data-label="$1,100/mo">
       <div><div class="brow-name">Post scheduling — 20+ posts</div><div class="brow-desc">All platforms including YouTube Shorts</div></div>
-      <div class="brow-price">$350/mo</div>
+      <div class="brow-price">$1,100/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
@@ -498,14 +501,14 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       <span class="builder-category-label">Engagement & Reporting</span>
       <div class="builder-category-line"></div>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="100" data-name="Community management" data-label="$100/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="350" data-name="Community management" data-label="$350/mo">
       <div><div class="brow-name">Community management</div><div class="brow-desc">Daily comment and DM monitoring across all active platforms</div></div>
-      <div class="brow-price">$100/mo</div>
+      <div class="brow-price">$350/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="75" data-name="Monthly performance report" data-label="$75/mo">
+    <div class="brow" onclick="toggleRow(this)" data-price="150" data-name="Monthly performance report" data-label="$150/mo">
       <div><div class="brow-name">Monthly performance report</div><div class="brow-desc">Follower growth, reach, and engagement delivered to your inbox</div></div>
-      <div class="brow-price">$75/mo</div>
+      <div class="brow-price">$150/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
@@ -514,14 +517,14 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       <span class="builder-category-label">Add-ons</span>
       <div class="builder-category-line"></div>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="300" data-name="Paid ads management" data-label="$300/mo + ad spend">
+    <div class="brow" onclick="toggleRow(this)" data-price="600" data-name="Paid ads management" data-label="$600/mo + ad spend">
       <div><div class="brow-name">Paid ads management</div><div class="brow-desc">Facebook & Instagram campaigns — targeting, creative, and optimization. Ad spend billed separately.</div></div>
-      <div class="brow-price">$300/mo</div>
+      <div class="brow-price">$600/mo</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-price="200" data-name="Account setup & audit (one-time)" data-label="$200 one-time" data-onetime="true">
+    <div class="brow" onclick="toggleRow(this)" data-price="300" data-name="Account setup & audit (one-time)" data-label="$300 one-time" data-onetime="true">
       <div><div class="brow-name">Account setup & audit</div><div class="brow-desc">One-time profile optimization across all platforms — bios, photos, highlights</div></div>
-      <div class="brow-price">$200 one-time</div>
+      <div class="brow-price">$300 one-time</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
@@ -536,7 +539,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
           <div class="summary-lines" id="bSummaryLines"></div>
           <div class="summary-total-row">
             <span class="summary-total-lbl">Monthly total</span>
-            <span class="summary-total-num" id="bSummaryTotal">$0</span>
+            <span class="summary-total-num" id="bSummaryTotal">$0/mo</span>
           </div>
         </div>
         <div class="summary-right">
@@ -555,7 +558,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
     </div>
 
     <div class="builder-foot">
-      <div class="builder-foot-note">Month-to-month. No long-term contracts</div>
+      <div class="builder-foot-note">Month-to-month. No long-term contracts.</div>
       <button class="builder-foot-btn" id="bQuoteBtn" onclick="generateQuote()" disabled>Generate quote →</button>
     </div>
   </div>
@@ -643,7 +646,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
           <select class="cf-select cf-input" id="cfInterest">
             <option>Starter package — $650/mo</option>
             <option>Growth package — $1,200/mo</option>
-            <option>Premium package — $2,000/mo</option>
+            <option>Premium package — $2,300/mo</option>
             <option>Custom package</option>
           </select>
         </div>
@@ -653,7 +656,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       </div>
       <div class="cf-success" id="cSuccess">
         <strong style="display:block; color:var(--gold2); margin-bottom:0.4rem;">Your email client is opening.</strong>
-        A pre-filled email is ready to send — just hit send and we'll get back to you within 1-2 business day.
+        A pre-filled email is ready to send — just hit send and we'll get back to you within 1–2 business days.
       </div>
     </div>
   </div>
@@ -689,14 +692,21 @@ function toggleRow(row) {
 }
 
 function updateTotal() {
-  let total = 0;
+  let monthly = 0;
+  let oneTime = 0;
   document.querySelectorAll('.brow input:checked').forEach(cb => {
-    total += parseInt(cb.closest('.brow').dataset.price);
+    const row = cb.closest('.brow');
+    const price = parseInt(row.dataset.price);
+    if (row.dataset.onetime === 'true') oneTime += price;
+    else monthly += price;
   });
-  document.getElementById('bTotal').textContent = '$' + total.toLocaleString();
-  const hasSelections = total > 0;
+
+  let totalText = '$' + monthly.toLocaleString();
+  if (oneTime > 0) totalText += ' + $' + oneTime.toLocaleString() + ' setup';
+  document.getElementById('bTotal').textContent = totalText;
+
+  const hasSelections = monthly > 0 || oneTime > 0;
   document.getElementById('bQuoteBtn').disabled = !hasSelections;
-  // Hide summary if selections change
   document.getElementById('bSummary').classList.remove('show');
 }
 
@@ -707,28 +717,60 @@ function generateQuote() {
   let monthly = 0;
   let oneTime = 0;
   let linesHTML = '';
+  const monthlyLines = [];
+  const oneTimeLines = [];
 
   rows.forEach(cb => {
     const row = cb.closest('.brow');
     const price = parseInt(row.dataset.price);
     const name = row.dataset.name;
     const label = row.dataset.label;
+    const desc = row.querySelector('.brow-desc')?.textContent.trim() || '';
     const isOnetime = row.dataset.onetime === 'true';
-    if (isOnetime) oneTime += price;
-    else monthly += price;
+
+    if (isOnetime) {
+      oneTime += price;
+      oneTimeLines.push({ name, label, desc });
+    } else {
+      monthly += price;
+      monthlyLines.push({ name, label, desc });
+    }
+
     linesHTML += `<div class="sline"><span>${name}</span><span class="sline-price">${label}</span></div>`;
   });
 
-  const total = monthly + oneTime;
+  const firstMonthTotal = monthly + oneTime;
   document.getElementById('bSummaryLines').innerHTML = linesHTML;
-  document.getElementById('bSummaryTotal').textContent = '$' + total.toLocaleString();
+  let summaryTotal = '$' + monthly.toLocaleString() + '/mo';
+  if (oneTime > 0) summaryTotal += ' + $' + oneTime.toLocaleString() + ' setup';
+  document.getElementById('bSummaryTotal').textContent = summaryTotal;
 
-  // Build email link
-  const bodyLines = rows.map(cb => {
-    const row = cb.closest('.brow');
-    return `- ${row.dataset.name}: ${row.dataset.label}`;
-  }).join('%0D%0A');
-  const emailHref = `mailto:ferrisiliescu@gmail.com?subject=Custom%20Package%20Quote%20%E2%80%94%20Caddie%20Media&body=Hi%20Caden%2C%0D%0A%0D%0AHere%20are%20the%20services%20I%27m%20interested%20in%3A%0D%0A%0D%0A${bodyLines}%0D%0A%0D%0AMonthly%20total%3A%20%24${total.toLocaleString()}%0D%0A%0D%0APlease%20send%20me%20a%20formal%20proposal.`;
+  const formatItems = (items) => items.map(item => `- ${item.name}: ${item.label}${item.desc ? `\n  ${item.desc}` : ''}`).join('\n');
+
+  const body = [
+    'Hi Caden,',
+    '',
+    'I built a custom package on the Caddie Media website. Here are the selected services:',
+    '',
+    'Monthly services:',
+    monthlyLines.length ? formatItems(monthlyLines) : '- None selected',
+    '',
+    'One-time services:',
+    oneTimeLines.length ? formatItems(oneTimeLines) : '- None selected',
+    '',
+    `Estimated monthly total: $${monthly.toLocaleString()}/mo`,
+    `Estimated one-time setup: $${oneTime.toLocaleString()}`,
+    `Estimated first-month total: $${firstMonthTotal.toLocaleString()}`,
+    '',
+    'Course name:',
+    'Best contact name:',
+    'Best contact email:',
+    'Current social media links:',
+    '',
+    'Please send me a formal proposal.'
+  ].join('\n');
+
+  const emailHref = `mailto:ferrisiliescu@gmail.com?subject=${encodeURIComponent('Custom Package Quote — Caddie Media')}&body=${encodeURIComponent(body)}`;
   document.getElementById('bEmailBtn').href = emailHref;
 
   document.getElementById('bSummary').classList.add('show');
@@ -785,6 +827,9 @@ function submitContact() {
   document.getElementById('cForm').style.display = 'none';
   document.getElementById('cSuccess').classList.add('show');
 }
+
+// Initialize builder total for pre-selected custom strategy row
+updateTotal();
 </script>
 </body>
 </html>
