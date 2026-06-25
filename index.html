@@ -301,6 +301,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
     <div class="hero-btns reveal">
       <a href="#pricing" class="btn-primary">See pricing</a>
       <a href="#builder" class="btn-line">Request custom quote</a>
+</div>
     </div>
   </div>
   <div class="hero-right">
@@ -619,10 +620,9 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       <h2>Let's talk about your course.</h2>
       <p>Tell us where you're at and what you're looking for. We'll come back with a free audit and a recommendation — no pressure.</p>
       <div class="contact-details">
-        <div><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:ferrisiliescu@gmail.com">ferrisiliescu@gmail.com</a></div></div>
-        <div><div class="cd-label">Phone</div><div class="cd-val">(702) 715-5321</div></div>
+        <div><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:hello@caddie-media.com">hello@caddie-media.com</a></div></div>
         <div><div class="cd-label">Based in</div><div class="cd-val">Las Vegas, NV</div></div>
-        <div><div class="cd-label">Response time</div><div class="cd-val">Within 1-2 business day</div></div>
+        <div><div class="cd-label">Response time</div><div class="cd-val">Within 1-2 business days</div></div>
       </div>
     </div>
     <div class="reveal">
@@ -643,6 +643,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
         </div>
         <div><label class="cf-label">Anything else</label><textarea class="cf-input" id="cfNotes" placeholder="Current social accounts, goals, questions — anything helps."></textarea></div>
         <button class="cf-submit" id="cfSubmitBtn" onclick="submitContact()">Send message →</button>
+        <div class="cf-direct"> Or email us directly at<a href="mailto:hello@caddie-media.com">hello@caddie-media.com</a> </div>
         <div id="cfError" style="display:none; font-size:12px; color:#e07a5f; margin-top:0.4rem;"></div>
       </div>
       <div class="cf-success" id="cSuccess">
@@ -655,7 +656,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
 
 <footer>
   <div class="footer-logo">Caddie<em>Media</em></div>
-  <div class="footer-note">© 2025 Caddie Media · Las Vegas, NV · ferrisiliescu@gmail.com</div>
+  <div class="footer-note">© 2025 Caddie Media · Las Vegas, NV · hello@caddie-media.com</div>
 </footer>
 
 <script>
@@ -727,7 +728,7 @@ function generateQuote() {
     'Thank you.'
   ].join('\n');
 
-  const emailHref = `mailto:ferrisiliescu@gmail.com?subject=${encodeURIComponent('Custom Package Request — Caddie Media')}&body=${encodeURIComponent(emailBody)}`;
+  const emailHref = `mailto:hello@caddie-media.com?subject=${encodeURIComponent('Custom Package Request — Caddie Media')}&body=${encodeURIComponent(emailBody)}`;
   document.getElementById('bEmailBtn').href = emailHref;
 
   document.getElementById('bSummary').classList.add('show');
@@ -781,7 +782,7 @@ function submitContact() {
     `Notes: ${notes || 'None'}`,
   ].join('\n');
 
-  const mailtoLink = `mailto:ferrisiliescu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailtoLink = `mailto:hello@caddie-media.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.open(mailtoLink, '_blank');
 
   document.getElementById('cForm').style.display = 'none';
