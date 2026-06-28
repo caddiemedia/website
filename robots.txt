@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://caddie-media.com/sitemap.xml
