@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caddie Media | Golf Course Social Media</title>
-
-<meta name="description" content="Caddie Media is a social media agency focused exclusively on golf courses. We create engaging content, manage posting, and grow your course's online presence through strategic social media management and short-form video.">
+<meta name="description" content="Social media management built exclusively for golf courses. We create content, manage posting, and grow your course through engaging short-form video.">
+<meta name="robots" content="index, follow">
 <meta property="og:title" content="Caddie Media | Golf Course Social Media">
 <meta property="og:description" content="Professional social media management built exclusively for golf courses.">
 <meta property="og:image" content="https://caddie-media.com/favicon.png">
@@ -13,404 +13,561 @@
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --black:  #0C1409;
-  --green:  #0F1A0F;
-  --green2: #1A2E18;
-  --gold:   #B8962E;
-  --gold2:  #D4AE52;
-  --sand:   #E8E0CC;
-  --paper:  #F8F5EE;
-  --ink:    #1C1C18;
-  --muted:  #6A6860;
-  --rule:   rgba(28,28,24,0.1);
-}
+    :root {
+        --white: #FFFFFF;
+        --black: #0A0A0A;
+        --orange: #B8962E;
+        --grey: #F2F2F0;
+        --mid: #6B6B6B;
+        --rule: rgba(10,10,10,0.1);
+        --paper: #FAFAF8;
+        --gold: #B8962E;
+        --gold2: #D4AE52;
+        --green: #0F1A0F;
+        --muted: #6B6B6B;
+    }
 html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
 a { text-decoration: none; color: inherit; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
-  position: sticky; top: 0; z-index: 200;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 3rem;
-  background: rgba(248,245,238,0.92); backdrop-filter: blur(14px);
-  border-bottom: 0.5px solid var(--rule);
+  padding: 1.1rem 3rem;
+  mix-blend-mode: normal;
+  transition: background 0.3s, border-color 0.3s;
 }
-.logo { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.01em; }
-.logo em { font-style: italic; color: var(--gold); }
-.nav-mid { display: flex; gap: 2.5rem; }
-.nav-mid a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
-.nav-mid a:hover { color: var(--ink); }
-.nav-cta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 1.5rem; background: var(--green); color: var(--sand); transition: opacity 0.2s; display: inline-block; }
-.nav-cta:hover { opacity: 0.85; }
+nav.light { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--rule); }
+nav.dark { background: transparent; }
+.logo { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; letter-break: anywhere; }
+.logo-light { color: var(--black); }
+.logo-dark { color: var(--white); }
+.logo span { color: var(--orange); }
+.nav-links { display: flex; gap: 2.5rem; align-items: center; }
+.nav-links a { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-dark .nav-links a { color: rgba(255,255,255,0.65); }
+.nav-dark .nav-links a:hover { color: white; }
+.nav-light .nav-links a { color: var(--mid); }
+.nav-light .nav-links a:hover { color: var(--black); }
+.nav-btn { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 1.4rem; font-family: 'Inter', sans-serif; cursor: pointer; border: none; transition: all 0.2s; }
+.nav-btn-dark { background: var(--white); color: var(--black); }
+.nav-btn-dark:hover { background: var(--orange); color: var(--white); }
+.nav-btn-light { background: var(--black); color: var(--white); }
+.nav-btn-light:hover { background: var(--orange); }
 
-/* HERO */
-.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 58px); border-bottom: 0.5px solid var(--rule); }
-.hero-left { padding: 5rem 3rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 0.5px solid var(--rule); }
-.hero-tag { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; }
-.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(44px, 5.5vw, 72px); font-weight: 400; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero-sub { font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.85; max-width: 400px; margin-bottom: 2.5rem; }
+/* ── HERO ── */
+.hero {
+  background: var(--black);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center;
+  padding: 8rem 3rem 5rem;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left { display: flex; flex-direction: column; justify-content: center; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 2rem; font-family: 'Inter', sans-serif; }
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+}
+.hero h1 .accent { color: var(--orange); }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.85; max-width: 400px; margin-bottom: 3rem; }
 .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.btn-primary { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; background: var(--green); color: var(--sand); font-family: 'DM Sans', sans-serif; border: none; cursor: pointer; transition: opacity 0.2s; display: inline-block; }
-.btn-primary:hover { opacity: 0.85; }
-.btn-line { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; background: transparent; color: var(--ink); font-family: 'DM Sans', sans-serif; border: 0.5px solid var(--rule); cursor: pointer; transition: border-color 0.2s; display: inline-block; }
-.btn-line:hover { border-color: var(--ink); }
-.hero-right { background: var(--green); display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
-.hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=900&q=80') center/cover; opacity: 0.35; }
-.hero-card { position: relative; z-index: 1; margin: 2rem; background: rgba(15,26,15,0.82); border: 0.5px solid rgba(184,150,46,0.3); backdrop-filter: blur(8px); padding: 2rem; }
-.hero-card-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold2); margin-bottom: 1.25rem; }
-.hero-card-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--sand); line-height: 1.2; margin-bottom: 0.5rem; }
-.hero-card-sub { font-size: 13px; color: rgba(232,224,204,0.55); margin-bottom: 1.5rem; }
-.fake-ig { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-.fake-ig-cell { aspect-ratio: 1; opacity: 0.7; }
-.fake-ig-cell.c1 { background: linear-gradient(135deg,#1a3a18,#0a1a0a); }
-.fake-ig-cell.c2 { background: linear-gradient(135deg,#2a1a08,#1a0e04); }
-.fake-ig-cell.c3 { background: linear-gradient(135deg,#0a1a2a,#040e18); }
-.fake-ig-cell.c4 { background: linear-gradient(135deg,#1a2a14,#0e1a0a); }
-.fake-ig-cell.c5 { background: linear-gradient(135deg,#2a2010,#1a1408); }
-.fake-ig-cell.c6 { background: linear-gradient(135deg,#0a1e1a,#04120e); }
+.btn-orange { padding: 0.9rem 2.25rem; background: var(--orange); color: var(--white); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: opacity 0.2s; display: inline-block; }
+.btn-orange:hover { opacity: 0.88; }
+.btn-outline-white { padding: 0.9rem 2.25rem; background: transparent; color: rgba(255,255,255,0.7); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', sans-serif; border: 0.5px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.2s; display: inline-block; }
+.btn-outline-white:hover { color: white; border-color: rgba(255,255,255,0.5); }
 
-/* TICKER */
-.ticker-bar { background: var(--green); overflow: hidden; border-bottom: 0.5px solid rgba(184,150,46,0.15); }
-.ticker-inner { display: flex; width: max-content; animation: scroll-left 32s linear infinite; padding: 0.8rem 0; }
-.ticker-inner span { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(232,224,204,0.5); padding: 0 2.5rem; white-space: nowrap; }
-.ticker-inner b { color: var(--gold2); font-weight: 400; }
+/* ── ANIMATED FEED ── */
+.hero-feed { display: flex; flex-direction: column; gap: 0; }
+.feed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.feed-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  transition: opacity 0.6s ease;
+  position: relative;
+  overflow: hidden;
+}
+.feed-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(232,93,38,0);
+  transition: background 0.4s;
+}
+.feed-cell:hover::after { background: rgba(232,93,38,0.25); }
+.fc-1  { background: #1A2E18; }
+.fc-2  { background: #2E1A0A; }
+.fc-3  { background: #0A1E2E; }
+.fc-4  { background: #2A1428; }
+.fc-5  { background: #0E2218; }
+.fc-6  { background: #1E1408; }
+.fc-7  { background: #082218; }
+.fc-8  { background: #1A0E24; }
+.fc-9  { background: #241808; }
+.feed-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-family: 'Inter', sans-serif; margin-top: 1rem; text-align: center; }
+.feed-pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); display: inline-block; margin-right: 8px; animation: pulse-dot 1.5s ease-in-out infinite; }
+@keyframes pulse-dot { 0%,100% { opacity: 0.4; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } }
+
+/* ── TICKER ── */
+.ticker-wrap { background: var(--orange); overflow: hidden; padding: 0.7rem 0; }
+.ticker-inner { display: flex; width: max-content; animation: scroll-left 28s linear infinite; }
+.ticker-inner span { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); padding: 0 2.5rem; white-space: nowrap; font-family: 'Inter', sans-serif; }
+.ticker-inner b { color: white; font-weight: 500; }
 @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* INTRO */
-.intro { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 0.5px solid var(--rule); }
-.intro-left { padding: 4rem 3rem; border-right: 0.5px solid var(--rule); }
-.intro-right { padding: 4rem 3rem; background: var(--green); color: var(--sand); }
-.section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-.intro-right .section-label { color: var(--gold2); }
-.intro-h { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; line-height: 1.1; margin-bottom: 1.25rem; }
-.intro-right .intro-h { color: var(--sand); }
-.intro-p { font-size: 14px; color: var(--muted); line-height: 1.85; }
-.intro-right .intro-p { color: rgba(232,224,204,0.62); }
-.honest-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
-.honest-item { display: flex; gap: 0.85rem; font-size: 14px; color: var(--muted); align-items: flex-start; line-height: 1.6; }
-.honest-check { color: var(--gold); flex-shrink: 0; font-size: 12px; margin-top: 3px; }
-.intro-right .honest-item { color: rgba(232,224,204,0.65); }
+/* ── INTRO BAND ── */
+.intro-band { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 0.5px solid var(--rule); }
+.intro-stat { padding: 3rem 2.5rem; border-right: 0.5px solid var(--rule); }
+.intro-stat:last-child { border-right: none; }
+.intro-stat-num { font-family: 'Syne', sans-serif; font-size: 52px; font-weight: 800; color: var(--orange); line-height: 1; letter-spacing: -0.03em; }
+.intro-stat-label { font-size: 13px; color: var(--mid); margin-top: 0.5rem; line-height: 1.5; }
 
-/* PORTFOLIO */
-.portfolio-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.portfolio-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: inline-block; padding: 3px 10px; border: 0.5px solid var(--rule); margin-bottom: 0.5rem; }
-.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-.pcard { background: white; border: 0.5px solid var(--rule); overflow: hidden; }
-.pcard-img { height: 220px; background-size: cover; background-position: center; position: relative; }
-.pcard-tag { position: absolute; top: 1rem; left: 1rem; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--green); color: var(--gold2); padding: 4px 10px; }
-.pcard-body { padding: 1.5rem; }
-.pcard-type { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
-.pcard-title { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 0.6rem; line-height: 1.2; }
-.pcard-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
-.pcard-deliverables { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.pcard-tag2 { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border: 0.5px solid var(--rule); color: var(--muted); }
-.portfolio-note { margin-top: 2rem; padding: 1.25rem 1.5rem; border: 0.5px solid var(--rule); font-size: 13px; color: var(--muted); line-height: 1.7; background: white; }
-.portfolio-note strong { color: var(--ink); }
+/* ── SECTIONS ── */
+.section { padding: 5.5rem 3rem; border-bottom: 0.5px solid var(--rule); }
+.section-alt { background: var(--grey); }
+.section-dark { background: var(--black); color: var(--white); }
+.eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+.section-h { font-family: 'Syne', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.section-sub { font-size: 15px; color: var(--mid); font-weight: 300; max-width: 500px; line-height: 1.85; }
+.section-dark .section-sub { color: rgba(255,255,255,0.5); }
 
-/* SERVICES */
-.services-section { border-bottom: 0.5px solid var(--rule); }
-.services-header { padding: 4rem 3rem 2rem; }
-.services-table { width: 100%; border-collapse: collapse; }
-.services-table tr { border-top: 0.5px solid var(--rule); }
-.services-table tr:hover td { background: var(--paper); }
-.services-table td { padding: 1.5rem 3rem; vertical-align: top; }
-.svc-name { font-size: 15px; font-weight: 500; }
-.svc-desc { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.65; }
-.svc-price { font-size: 14px; font-weight: 500; white-space: nowrap; text-align: right; }
-.svc-note { font-size: 11px; color: var(--muted); text-align: right; margin-top: 2px; }
+/* ── WHO WE ARE ── */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+.who-left p { font-size: 15px; color: var(--mid); line-height: 1.85; margin-bottom: 1rem; }
+.who-right { display: flex; flex-direction: column; gap: 0; }
+.who-item { padding: 1.5rem 0; border-top: 0.5px solid var(--rule); display: flex; gap: 1.5rem; align-items: flex-start; }
+.who-item:last-child { border-bottom: 0.5px solid var(--rule); }
+.who-item-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex-shrink: 0; margin-top: 6px; }
+.who-item-text { font-size: 14px; color: var(--black); line-height: 1.65; }
+.who-item-text strong { font-weight: 500; display: block; margin-bottom: 2px; }
 
-/* PRICING */
-.pricing-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-.pkg { border: 0.5px solid var(--rule); padding: 2.5rem 2rem; background: white; transition: transform 0.2s, box-shadow 0.2s; }
-.pkg:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.07); }
-.pkg.featured { background: var(--green); border-color: var(--gold); color: var(--sand); }
-.pkg-badge { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--green); padding: 3px 10px; display: inline-block; margin-bottom: 1.25rem; font-weight: 500; }
-.pkg-tier { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
-.pkg.featured .pkg-tier { color: rgba(232,224,204,0.45); }
-.pkg-price { font-family: 'DM Serif Display', serif; font-size: 52px; color: var(--gold); line-height: 1; }
-.pkg-mo { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
-.pkg.featured .pkg-mo { color: rgba(232,224,204,0.4); }
-.pkg-features { display: flex; flex-direction: column; gap: 0.65rem; }
-.pf { font-size: 13px; color: var(--muted); display: flex; gap: 9px; line-height: 1.5; }
-.pkg.featured .pf { color: rgba(232,224,204,0.68); }
-.pf::before { content: '—'; color: var(--gold); flex-shrink: 0; }
-.pkg-btn { display: block; text-align: center; margin-top: 2rem; padding: 0.8rem; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: 0.5px solid var(--rule); color: var(--ink); transition: all 0.2s; }
-.pkg-btn:hover { background: var(--green); color: var(--sand); border-color: var(--green); }
-.pkg.featured .pkg-btn { background: var(--gold); color: var(--green); border-color: var(--gold); }
-.pkg.featured .pkg-btn:hover { opacity: 0.88; }
+/* ── SERVICES ── */
+.services-list { margin-top: 3rem; }
+.svc-row { display: grid; grid-template-columns: 2fr 3fr 120px; gap: 2rem; align-items: start; padding: 1.75rem 0; border-top: 0.5px solid rgba(255,255,255,0.08); transition: background 0.15s; }
+.svc-row:last-child { border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+.svc-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); }
+.svc-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+.svc-price { font-size: 13px; font-weight: 500; color: var(--orange); text-align: right; white-space: nowrap; }
+.svc-note { font-size: 11px; color: rgba(255,255,255,0.3); text-align: right; margin-top: 2px; }
 
-/* CUSTOM BUILDER */
-.builder-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.builder-intro { max-width: 600px; margin-bottom: 3rem; }
-.builder-box { border: 0.5px solid var(--rule); background: white; }
+/* ── PRICING ── */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); margin-top: 3rem; }
+.pkg { background: var(--paper); padding: 2.5rem 2rem; transition: transform 0.2s; }
+.pkg:hover { transform: translateY(-2px); }
+.pkg-featured { background: var(--black); color: var(--white); }
+.pkg-badge { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--orange); color: var(--white); padding: 3px 10px; display: inline-block; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; }
+.pkg-tier { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.3rem; font-family: 'Inter', sans-serif; }
+.pkg-featured .pkg-tier { color: rgba(255,255,255,0.4); }
+.pkg-price { font-family: 'Syne', sans-serif; font-size: 52px; font-weight: 800; color: var(--orange); line-height: 1; letter-spacing: -0.03em; }
+.pkg-mo { font-size: 13px; color: var(--mid); margin-bottom: 2rem; font-family: 'Inter', sans-serif; }
+.pkg-featured .pkg-mo { color: rgba(255,255,255,0.35); }
+.pkg-features { display: flex; flex-direction: column; gap: 0.7rem; }
+.pf { font-size: 13px; color: var(--mid); display: flex; gap: 10px; line-height: 1.5; font-family: 'Inter', sans-serif; }
+.pkg-featured .pf { color: rgba(255,255,255,0.6); }
+.pf-dot { color: var(--orange); flex-shrink: 0; font-size: 8px; margin-top: 5px; }
+.pkg-btn { display: block; text-align: center; margin-top: 2rem; padding: 0.85rem; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: 0.5px solid var(--rule); color: var(--black); transition: all 0.2s; font-family: 'Inter', sans-serif; }
+.pkg-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+.pkg-featured .pkg-btn { background: var(--orange); color: var(--white); border-color: var(--orange); }
+.pkg-featured .pkg-btn:hover { opacity: 0.88; }
 
-/* Builder header */
+    /* CUSTOM BUILDER */
+    .builder-section {
+        padding: 5rem 3rem;
+        border-bottom: 0.5px solid var(--rule);
+    }
+
+    .builder-intro {
+        max-width: 600px;
+        margin-bottom: 3rem;
+    }
+
+    .builder-box {
+        border: 0.5px solid var(--rule);
+        background: white;
+    }
+
+    /* Builder rows */
+    .brow {
+        display: grid;
+        grid-template-columns: 1fr 100px 44px;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 1.25rem 2.5rem;
+        border-bottom: 0.5px solid var(--rule);
+        transition: background 0.15s;
+        cursor: pointer;
+    }
+
+        .brow:last-child {
+            border-bottom: none;
+        }
+
+        .brow:hover {
+            background: #FDFBF6;
+        }
+
+        .brow.selected {
+            background: rgba(184,150,46,0.04);
+        }
+
+    .brow-name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .brow-desc {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 2px;
+        line-height: 1.5;
+    }
+
+    .brow-price {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        text-align: right;
+        transition: color 0.2s;
+        white-space: nowrap;
+    }
+
+        .brow-price.on {
+            color: var(--gold);
+        }
+
+    .tog {
+        position: relative;
+        width: 40px;
+        height: 22px;
+        pointer-events: none;
+    }
+
+        .tog input {
+            display: none;
+        }
+
+    .tog-track {
+        position: absolute;
+        inset: 0;
+        background: #ddd;
+        border-radius: 22px;
+        transition: 0.2s;
+    }
+
+    .tog input:checked + .tog-track {
+        background: var(--green);
+    }
+
+    .tog-track::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 3px;
+        left: 3px;
+        background: white;
+        border-radius: 50%;
+        transition: 0.2s;
+    }
+
+    .tog input:checked + .tog-track::before {
+        transform: translateX(18px);
+    }
+
+/* Custom quote layout additions */
+.builder-wrap { border: 0.5px solid var(--rule); background: var(--white); margin-top: 3rem; }
 .builder-head { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 2rem 2.5rem; border-bottom: 0.5px solid var(--rule); background: var(--paper); }
-.builder-head-title { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; }
-.builder-head-sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
-.builder-total-wrap { text-align: right; }
-.builder-total-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-.builder-total-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--gold); line-height: 1; transition: all 0.25s; }
-.builder-total-mo { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-/* Category headers */
-.builder-category { padding: 0.75rem 2.5rem; background: var(--paper); border-bottom: 0.5px solid var(--rule); display: flex; align-items: center; gap: 0.75rem; }
-.builder-category-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-.builder-category-line { flex: 1; height: 0.5px; background: var(--rule); }
-
-/* Builder rows */
-.brow { display: grid; grid-template-columns: 1fr 100px 44px; gap: 1.5rem; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 0.5px solid var(--rule); transition: background 0.15s; cursor: pointer; }
-.brow:last-child { border-bottom: none; }
-.brow:hover { background: #FDFBF6; }
-.brow.selected { background: rgba(184,150,46,0.04); }
-.brow-name { font-size: 14px; font-weight: 500; }
-.brow-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
-.brow-price { font-size: 13px; font-weight: 500; color: var(--muted); text-align: right; transition: color 0.2s; white-space: nowrap; }
-.brow-price.on { color: var(--gold); }
-.tog { position: relative; width: 40px; height: 22px; pointer-events: none; }
-.tog input { display: none; }
-.tog-track { position: absolute; inset: 0; background: #ddd; border-radius: 22px; transition: 0.2s; }
-.tog input:checked + .tog-track { background: var(--green); }
-.tog-track::before { content: ''; position: absolute; width: 16px; height: 16px; top: 3px; left: 3px; background: white; border-radius: 50%; transition: 0.2s; }
-.tog input:checked + .tog-track::before { transform: translateX(18px); }
-
-/* Summary panel */
-.builder-summary { display: none; border-top: 0.5px solid var(--rule); }
-.builder-summary.show { display: block; }
-.summary-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.summary-left { padding: 2rem 2.5rem; border-right: 0.5px solid var(--rule); }
-.summary-right { padding: 2rem 2.5rem; background: var(--green); }
-.summary-title { font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 400; margin-bottom: 1rem; }
-.summary-right .summary-title { color: var(--sand); }
-.summary-lines { display: flex; flex-direction: column; gap: 0; }
-.sline { display: flex; justify-content: space-between; font-size: 13px; padding: 0.5rem 0; border-bottom: 0.5px solid var(--rule); }
-.sline:last-child { border-bottom: none; }
-.sline small { color: var(--muted); font-size: 12px; line-height: 1.5; display: block; margin-top: 2px; }
-.sline-price { color: var(--gold); font-weight: 500; }
-.summary-total-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1rem; margin-top: 1rem; border-top: 1px solid var(--ink); }
-.summary-total-lbl { font-size: 13px; font-weight: 500; }
-.summary-total-num { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--gold); }
-.summary-right-inner { display: flex; flex-direction: column; gap: 1rem; }
-.summary-note { font-size: 13px; color: rgba(232,224,204,0.6); line-height: 1.75; }
-.summary-note strong { color: var(--gold2); display: block; margin-bottom: 0.25rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
-.summary-actions { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
-.summary-btn-email { padding: 0.85rem 1.5rem; background: var(--gold); color: var(--green); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500; border: none; cursor: pointer; text-align: center; display: block; transition: opacity 0.2s; }
-.summary-btn-email:hover { opacity: 0.88; }
-.summary-btn-reset { padding: 0.85rem 1.5rem; background: transparent; color: rgba(232,224,204,0.5); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; border: 0.5px solid rgba(232,224,204,0.2); cursor: pointer; text-align: center; transition: all 0.2s; }
-.summary-btn-reset:hover { color: var(--sand); border-color: rgba(232,224,204,0.4); }
-
-/* Builder footer */
-.builder-foot { padding: 1.5rem 2.5rem; border-top: 0.5px solid var(--rule); display: flex; justify-content: space-between; align-items: center; background: var(--paper); }
-.builder-foot-note { font-size: 12px; color: var(--muted); }
-.builder-foot-btn { padding: 0.85rem 2rem; background: var(--green); color: var(--sand); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; border: none; cursor: pointer; transition: opacity 0.2s; }
-.builder-foot-btn:hover { opacity: 0.85; }
+.builder-head-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.builder-head-sub { font-size: 13px; color: var(--mid); margin-top: 4px; }
+.b-total-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); text-align: right; }
+.b-total-num { font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: var(--orange); line-height: 1; text-align: right; }
+.b-total-mo { font-size: 11px; color: var(--mid); text-align: right; margin-top: 4px; }
+.b-cat { padding: 0.75rem 2.5rem; background: #F7F4EC; border-bottom: 0.5px solid var(--rule); }
+.b-cat-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); font-weight: 500; }
+.brow.selected { background: rgba(184,150,46,0.06); }
+.brow-price.on { color: var(--orange); }
+.builder-summary { display: none; grid-template-columns: 1fr 1fr; border-top: 0.5px solid var(--rule); }
+.builder-summary.show { display: grid; }
+.bs-left { padding: 2rem 2.5rem; border-right: 0.5px solid var(--rule); }
+.bs-right { padding: 2rem 2.5rem; background: var(--black); color: var(--white); display: flex; flex-direction: column; gap: 1rem; }
+.bs-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 1rem; }
+.bs-line { display: block; padding: 0.65rem 0; border-bottom: 0.5px solid var(--rule); font-size: 13px; }
+.bs-line small { display: block; color: var(--mid); margin-top: 2px; line-height: 1.5; }
+.bs-total-row { display: none; }
+.bs-note { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+.bs-note strong { display:block; color: var(--orange); margin-bottom: 0.25rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.bs-email-btn { padding: 0.9rem 1.5rem; background: var(--orange); color: var(--white); text-align: center; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+.bs-reset-btn { padding: 0.85rem 1.5rem; background: transparent; color: rgba(255,255,255,0.55); border: 0.5px solid rgba(255,255,255,0.18); cursor:pointer; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+.builder-foot { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; border-top: 0.5px solid var(--rule); background: var(--paper); }
+.builder-foot-note { font-size: 12px; color: var(--mid); }
+.builder-foot-btn { padding: 0.9rem 2rem; background: var(--black); color: var(--white); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; }
 .builder-foot-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.cf-direct { margin-top: 0.75rem; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.cf-direct a { color: var(--orange); font-weight: 500; }
 
-/* Empty state */
-.builder-empty { padding: 2rem 2.5rem; text-align: center; font-size: 13px; color: var(--muted); border-top: 0.5px solid var(--rule); display: none; }
-.builder-empty.show { display: block; }
+/* ── PROCESS ── */
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 3rem; }
+.proc { padding: 2.5rem 2rem 2.5rem 0; border-right: 0.5px solid var(--rule); padding-right: 2rem; }
+.proc:last-child { border-right: none; padding-right: 0; }
+.proc-n { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 1rem; letter-spacing: -0.03em; opacity: 0.35; }
+.proc-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 0.5rem; }
+.proc-desc { font-size: 13px; color: var(--mid); line-height: 1.7; }
 
-/* PROCESS */
-.process-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 2.5rem; border: 0.5px solid var(--rule); }
-.pstep { padding: 2.25rem 1.75rem; border-right: 0.5px solid var(--rule); }
-.pstep:last-child { border-right: none; }
-.pstep-n { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--gold); line-height: 1; margin-bottom: 1rem; }
-.pstep-title { font-size: 14px; font-weight: 500; margin-bottom: 0.5rem; }
-.pstep-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
-
-/* FAQ */
-.faq-section { padding: 5rem 3rem; border-bottom: 0.5px solid var(--rule); }
-.faq-wrap { max-width: 680px; margin-top: 2.5rem; }
+/* ── FAQ ── */
+.faq-wrap { max-width: 640px; margin-top: 3rem; }
 .faq-item { border-bottom: 0.5px solid var(--rule); }
 .faq-item:first-child { border-top: 0.5px solid var(--rule); }
-.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; cursor: pointer; font-size: 14px; font-weight: 500; gap: 1rem; user-select: none; }
-.faq-icon { font-size: 20px; color: var(--gold); font-weight: 300; flex-shrink: 0; transition: transform 0.3s; }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; cursor: pointer; font-size: 14px; font-weight: 500; gap: 1rem; user-select: none; font-family: 'Inter', sans-serif; }
+.faq-icon { font-size: 20px; color: var(--orange); flex-shrink: 0; transition: transform 0.3s; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-a { font-size: 13px; color: var(--muted); line-height: 1.85; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
-.faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.4rem; }
+.faq-a { font-size: 13px; color: var(--mid); line-height: 1.85; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.faq-item.open .faq-a { max-height: 220px; padding-bottom: 1.4rem; }
 
-/* CONTACT */
-.contact-section { padding: 5rem 3rem; background: var(--green); }
+/* ── GUARANTEE ── */
+.guarantee { background: var(--orange); padding: 4rem 3rem; display: flex; gap: 4rem; align-items: center; flex-wrap: wrap; }
+.g-badge { width: 110px; height: 110px; border: 1.5px solid rgba(255,255,255,0.4); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex-shrink: 0; }
+.g-badge-top { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-family: 'Inter', sans-serif; }
+.g-badge-main { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; color: white; line-height: 1.1; margin: 3px 0; letter-spacing: -0.02em; }
+.g-badge-bot { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-family: 'Inter', sans-serif; }
+.g-text h3 { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700; color: white; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.g-text p { font-size: 14px; color: rgba(255,255,255,0.75); max-width: 480px; line-height: 1.8; font-weight: 300; }
+
+/* ── CONTACT ── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.contact-left h2 { font-family: 'DM Serif Display', serif; font-size: 40px; color: var(--sand); font-weight: 400; line-height: 1.1; margin-bottom: 1rem; }
-.contact-left p { font-size: 15px; color: rgba(232,224,204,0.6); font-weight: 300; line-height: 1.85; margin-bottom: 2.5rem; }
-.contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
-.cd-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,224,204,0.4); margin-bottom: 2px; }
-.cd-val { font-size: 15px; color: var(--gold2); }
-.cd-val a { color: var(--gold2); }
-.contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.contact-left h2 { font-family: 'Syne', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.contact-left p { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.85; font-weight: 300; margin-bottom: 2.5rem; }
+.cd-item { margin-bottom: 1.25rem; }
+.cd-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 3px; font-family: 'Inter', sans-serif; }
+.cd-val { font-size: 15px; color: var(--orange); font-family: 'Inter', sans-serif; }
+.cd-val a { color: var(--orange); }
+.cf { display: flex; flex-direction: column; gap: 0.85rem; }
 .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-.cf-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,224,204,0.4); display: block; margin-bottom: 0.4rem; }
-.cf-input { width: 100%; padding: 0.85rem 1rem; border: 0.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: var(--sand); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
-.cf-input::placeholder { color: rgba(232,224,204,0.28); }
-.cf-input:focus { border-color: rgba(184,150,46,0.5); }
+.cf-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 0.4rem; font-family: 'Inter', sans-serif; }
+.cf-input { width: 100%; padding: 0.85rem 1rem; border: 0.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: var(--white); font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
+.cf-input::placeholder { color: rgba(255,255,255,0.25); }
+.cf-input:focus { border-color: var(--orange); }
 textarea.cf-input { resize: vertical; min-height: 110px; }
-.cf-select { width: 100%; padding: 0.85rem 1rem; border: 0.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: var(--sand); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; }
-.cf-select option { color: var(--ink); background: white; }
-.cf-submit { padding: 1rem 2rem; background: var(--gold); color: var(--green); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: opacity 0.2s; }
+.cf-select { width: 100%; padding: 0.85rem 1rem; border: 0.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: var(--white); font-family: 'Inter', sans-serif; font-size: 14px; outline: none; }
+.cf-select option { color: var(--black); background: white; }
+.cf-submit { padding: 1rem 2rem; background: var(--orange); color: var(--white); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: opacity 0.2s; }
 .cf-submit:hover { opacity: 0.88; }
-.cf-success { display: none; padding: 1.25rem; border: 0.5px solid rgba(184,150,46,0.4); font-size: 13px; color: rgba(232,224,204,0.65); line-height: 1.7; }
+.cf-success { display: none; padding: 1.25rem; border: 0.5px solid rgba(232,93,38,0.4); font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
 .cf-success.show { display: block; }
+.cf-error { display: none; font-size: 12px; color: #ff8a65; margin-top: 0.4rem; }
 
-/* FOOTER */
-footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-.footer-logo { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--sand); }
-.footer-logo em { font-style: italic; color: var(--gold); }
-.footer-note { font-size: 12px; color: rgba(232,224,204,0.3); }
+/* ── FOOTER ── */
+footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid rgba(255,255,255,0.06); }
+.footer-logo { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--white); }
+.footer-logo span { color: var(--orange); }
+.footer-note { font-size: 12px; color: rgba(255,255,255,0.25); }
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
-  .nav-mid { display: none; }
-  .hero, .intro, .contact-grid, .summary-inner { grid-template-columns: 1fr; }
-  .hero-right { min-height: 280px; }
-  .intro-left { border-right: none; border-bottom: 0.5px solid var(--rule); }
-  .portfolio-grid, .pricing-grid, .process-steps { grid-template-columns: 1fr; }
-  .pstep { border-right: none; border-bottom: 0.5px solid var(--rule); }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; }
+  .hero-feed { display: none; }
+  .intro-band { grid-template-columns: 1fr; }
+  .intro-stat { border-right: none; border-bottom: 0.5px solid var(--rule); }
+  .who-grid, .contact-grid, .builder-summary { grid-template-columns: 1fr; }
+  .pricing-grid, .process-grid { grid-template-columns: 1fr; }
+  .proc { border-right: none; border-bottom: 0.5px solid var(--rule); padding-right: 0; }
+  .section, .guarantee { padding: 3.5rem 1.5rem; }
+  .b-cat, .brow, .builder-foot, .builder-head, .bs-left, .bs-right { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .brow { grid-template-columns: 1fr 90px 40px; gap: 1rem; }
+  .contact-grid { gap: 3rem; }
   .cf-row { grid-template-columns: 1fr; }
-  .brow { grid-template-columns: 1fr 80px 40px; padding: 1rem 1.5rem; gap: 1rem; }
-  .builder-category, .builder-foot, .summary-left, .summary-right { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .builder-head { padding: 1.5rem; }
-  .portfolio-section, .services-section .services-header, .pricing-section, .builder-section, .process-section, .faq-section, .contact-section { padding: 3.5rem 1.5rem; }
-  .services-table td { padding: 1.25rem 1.5rem; }
-  .summary-left { border-right: none; border-bottom: 0.5px solid var(--rule); }
+  .svc-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .svc-price { text-align: left; }
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">Caddie<em>Media</em></div>
-  <div class="nav-mid">
+<!-- NAV -->
+<nav id="nav" class="dark nav-dark">
+  <div class="logo logo-dark">Caddie<span>.</span>Media</div>
+  <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>
-    <a href="#builder">Custom Quote</a>
+    <a href="#builder">Custom</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="#contact" class="nav-cta">Work with us</a>
+  <a href="#contact" class="nav-btn nav-btn-dark">Work with us</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag reveal">Social media for golf courses — Las Vegas</div>
-    <h1 class="reveal">We make your<br>course <em>impossible</em><br>to scroll past.</h1>
-    <p class="hero-sub reveal">Caddie Media handles your content, scheduling, and community — so your tee times fill and your club stays top of mind.</p>
+    <div class="hero-eyebrow reveal">Golf course social media — Las Vegas, NV</div>
+    <h1 class="reveal">YOUR<br>COURSE.<br><span class="accent">SEEN.</span></h1>
+    <p class="hero-sub reveal">Caddie Media handles your Instagram, TikTok, and Facebook — content, posting, and community — so your tee times fill and your course stays top of mind.</p>
     <div class="hero-btns reveal">
-      <a href="#pricing" class="btn-primary">See pricing</a>
-      <a href="#builder" class="btn-line">Request custom quote</a>
-</div>
+      <a href="#pricing" class="btn-orange">See pricing</a>
+      <a href="#builder" class="btn-outline-white">Request custom quote</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-img"></div>
-    <div class="hero-card reveal">
-      <div class="hero-card-label">Built for golf courses</div>
-      <div class="hero-card-title">Course content, short-form video, captions, scheduling, and reporting — handled.</div>
-      <div class="hero-card-sub">We help capture course conditions, player experience, events, tournaments, and clubhouse moments so your team can stay focused on running the course.</div>
+  <div class="hero-feed reveal">
+    <div class="feed-grid" id="feedGrid">
+      <div class="feed-cell fc-1"></div>
+      <div class="feed-cell fc-2"></div>
+      <div class="feed-cell fc-3"></div>
+      <div class="feed-cell fc-4"></div>
+      <div class="feed-cell fc-5"></div>
+      <div class="feed-cell fc-6"></div>
+      <div class="feed-cell fc-7"></div>
+      <div class="feed-cell fc-8"></div>
+      <div class="feed-cell fc-9"></div>
     </div>
+    <div class="feed-label"><span class="feed-pulse"></span>Your feed, managed</div>
   </div>
 </section>
 
 <!-- TICKER -->
-<div class="ticker-bar">
+<div class="ticker-wrap">
   <div class="ticker-inner">
-    <span><b>Instagram</b></span><span><b>Facebook</b></span><span><b>TikTok</b></span><span><b>Reels</b></span><span>Golf courses</span><span>Country clubs</span><span>Driving ranges</span><span>Restaurants</span><span>Resorts</span><span>Content creation</span><span>Scheduling</span><span>Community management</span><span>Monthly reporting</span>
-    <span><b>Instagram</b></span><span><b>Facebook</b></span><span><b>TikTok</b></span><span><b>Reels</b></span><span>Golf courses</span><span>Country clubs</span><span>Driving ranges</span><span>Restaurants</span><span>Resorts</span><span>Content creation</span><span>Scheduling</span><span>Community management</span><span>Monthly reporting</span>
+    <span><b>Instagram</b></span><span><b>TikTok</b></span><span><b>Facebook</b></span><span><b>Reels</b></span><span>Golf courses</span><span>Country clubs</span><span>Driving ranges</span><span>Short-form video</span><span>Content creation</span><span>Community management</span><span>Monthly reporting</span><span>Las Vegas</span>
+    <span><b>Instagram</b></span><span><b>TikTok</b></span><span><b>Facebook</b></span><span><b>Reels</b></span><span>Golf courses</span><span>Country clubs</span><span>Driving ranges</span><span>Short-form video</span><span>Content creation</span><span>Community management</span><span>Monthly reporting</span><span>Las Vegas</span>
   </div>
 </div>
 
-<!-- INTRO -->
-<div class="intro reveal">
-  <div class="intro-left">
-    <div class="section-label">Who we are</div>
-    <div class="intro-h">A focused agency.<br>Built for golf.</div>
-    <p class="intro-p">We're Caden and Caleb, two people who know social media and know golf. Caddie Media is built specifically for courses in the Las Vegas area that want a consistent, professional presence without adding work to their staff.</p>
-    <p class="intro-p" style="margin-top:0.85rem;">Caden handles on-site content creation, client meetings, and relationships. Caleb leads editing, content strategy, and performance management. Two people, fully focused on your course.</p>
-    <div class="honest-list">
-      <div class="honest-item"><span class="honest-check">◆</span>No long-term contracts — month-to-month</div>
-      <div class="honest-item"><span class="honest-check">◆</span>Content calendar approval before anything goes live</div>
-      <div class="honest-item"><span class="honest-check">◆</span>One point of contact, always reachable</div>
-    </div>
+<!-- STATS -->
+<div class="intro-band">
+  <div class="intro-stat reveal">
+    <div class="intro-stat-num">Golf</div>
+    <div class="intro-stat-label">Focused entirely on golf course social media</div>
   </div>
-  <div class="intro-right">
-    <div class="section-label">Why now</div>
-    <div class="intro-h">Golf courses are underserved on social. That's the opportunity.</div>
-    <p class="intro-p">Most courses post inconsistently, avoid video, and never respond to comments. The bar is low — and clearing it creates real visibility with local golfers.</p>
-    <p class="intro-p" style="margin-top:0.85rem;">Short-form video on Instagram and TikTok is where golf audiences are growing fastest. Scenic fairways, golden hour shots, tournament highlights — this content performs well and your course already has everything it needs.</p>
-    <div class="honest-list" style="margin-top:1.5rem;">
-      <div class="honest-item"><span class="honest-check">◆</span>Golf is one of the most visual niches on social media</div>
-      <div class="honest-item"><span class="honest-check">◆</span>Wealthy, loyal audience that responds to quality content</div>
-      <div class="honest-item"><span class="honest-check">◆</span>Most competitors in your market aren't doing this yet</div>
-    </div>
+  <div class="intro-stat reveal">
+    <div class="intro-stat-num">48h</div>
+    <div class="intro-stat-label">Typical turnaround from first shoot to first content calendar</div>
+  </div>
+  <div class="intro-stat reveal">
+    <div class="intro-stat-num">Monthly</div>
+    <div class="intro-stat-label">Month-to-month service with no long-term contracts</div>
   </div>
 </div>
 
-
+<!-- WHO WE ARE -->
+<section class="section" id="about">
+  <div class="eyebrow reveal">Who we are</div>
+  <h2 class="section-h reveal">Two people.<br>One focus.</h2>
+  <div class="who-grid reveal">
+    <div class="who-left">
+      <p>We're Caden and Caleb — and we built Caddie Media specifically for golf courses in the Las Vegas area. Caden is on-site for every shoot and every client meeting. Caleb leads editing and strategy remotely. Two people fully focused on your account, not juggling fifty clients at once.</p>
+      <p>Golf is one of the most visual niches on social media. Scenic fairways, golden hour shots, tournament highlights — this content performs. Most courses in the Las Vegas area aren't doing it consistently yet. That's the opportunity.</p>
+    </div>
+    <div class="who-right">
+      <div class="who-item">
+        <div class="who-item-dot"></div>
+        <div class="who-item-text"><strong>No long-term contracts</strong>Month-to-month. Cancel with 14 days notice, no questions asked.</div>
+      </div>
+      <div class="who-item">
+        <div class="who-item-dot"></div>
+        <div class="who-item-text"><strong>Month-to-month support</strong>No long-term contract required. We earn the relationship through consistent work.</div>
+      </div>
+      <div class="who-item">
+        <div class="who-item-dot"></div>
+        <div class="who-item-text"><strong>Content approval before posting</strong>You review and approve everything before it goes live. Always.</div>
+      </div>
+      <div class="who-item">
+        <div class="who-item-dot"></div>
+        <div class="who-item-text"><strong>One point of contact</strong>You deal with Caden directly. Not an account manager, not a rotating team.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
-<section class="services-section" id="services">
-  <div class="services-header reveal">
-    <div class="section-label">Services</div>
-    <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Everything, or just what you need.</h2>
-    <p style="font-size:14px; color:var(--muted); max-width:480px; line-height:1.85;">Every service below is available individually or as part of a monthly package. For anything outside the standard packages, request a custom quote and we'll recommend the right setup.</p>
+<section class="section section-dark" id="services">
+  <div class="eyebrow reveal">What we do</div>
+  <h2 class="section-h reveal">Every service your<br>course actually needs.</h2>
+  <div class="services-list reveal">
+    <div class="svc-row">
+      <div class="svc-name">Content creation</div>
+      <div class="svc-desc">On-site photo and video shoot at your course — fairways, clubhouse, events, atmosphere. Shot and edited by us.</div>
+      <div><div class="svc-price">Incl. in Growth+</div><div class="svc-note">1 shoot/month</div></div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-name">Post scheduling</div>
+      <div class="svc-desc">Captions written and posts scheduled across your platforms. You approve the content calendar before anything goes live.</div>
+      <div><div class="svc-price">All packages</div><div class="svc-note">8–20+ posts/mo</div></div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-name">Short-form video</div>
+      <div class="svc-desc">Edited Reels and TikToks optimized for reach. The highest-growth format in golf right now — most courses in LV aren't doing it.</div>
+      <div><div class="svc-price">Incl. in Growth+</div><div class="svc-note">4–8 videos/mo</div></div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-name">Community management</div>
+      <div class="svc-desc">Daily replies to comments and DMs within 24 hours. Keeps your audience engaged and your algorithm happy.</div>
+      <div><div class="svc-price">Growth & Premium</div><div class="svc-note">Daily monitoring</div></div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-name">Monthly report</div>
+      <div class="svc-desc">Follower growth, reach, and engagement delivered to your inbox. No fluff, just what matters.</div>
+      <div><div class="svc-price">All packages</div><div class="svc-note">Always included</div></div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-name">Paid ads management</div>
+      <div class="svc-desc">Facebook and Instagram campaigns — targeting, creative, and optimization. Ad spend billed separately.</div>
+      <div><div class="svc-price">Premium only</div><div class="svc-note">+ ad spend</div></div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-name">Account setup & audit</div>
+      <div class="svc-desc">One-time profile optimization — bios, photos, highlights, and link-in-bio across all platforms.</div>
+      <div><div class="svc-price">$200</div><div class="svc-note">One-time</div></div>
+    </div>
   </div>
-  <table class="services-table reveal">
-    <tbody>
-      <tr><td><div class="svc-name">Content creation</div><div class="svc-desc">On-site photo and video shoot at your course — fairways, clubhouse, events, atmosphere.</div></td><td><div class="svc-price">Included in Growth+</div><div class="svc-note">1 shoot per month</div></td></tr>
-      <tr><td><div class="svc-name">Post scheduling</div><div class="svc-desc">Captions written and posts scheduled. You approve the content calendar before anything goes live.</div></td><td><div class="svc-price">All packages</div><div class="svc-note">8–20+ posts/month</div></td></tr>
-      <tr><td><div class="svc-name">Short-form video (Reels & TikTok)</div><div class="svc-desc">Edited short-form videos optimized for Instagram Reels and TikTok — the highest-growth format in golf.</div></td><td><div class="svc-price">Included in Growth+</div><div class="svc-note">4–8 videos/month</div></td></tr>
-      <tr><td><div class="svc-name">Community management</div><div class="svc-desc">Daily monitoring and replies to comments and DMs within 24 hours on your behalf.</div></td><td><div class="svc-price">Growth & Premium</div><div class="svc-note">All active platforms</div></td></tr>
-      <tr><td><div class="svc-name">Monthly performance report</div><div class="svc-desc">Follower growth, reach, and engagement delivered to your inbox every month.</div></td><td><div class="svc-price">All packages</div><div class="svc-note">Included always</div></td></tr>
-      <tr><td><div class="svc-name">YouTube Shorts</div><div class="svc-desc">Repurposed vertical video for YouTube Shorts — extends reach with no additional shooting required.</div></td><td><div class="svc-price">Premium only</div><div class="svc-note">Add-on available</div></td></tr>
-      <tr><td><div class="svc-name">Paid ads management</div><div class="svc-desc">Facebook and Instagram ad campaigns — targeting, creative, and optimization. Ad spend billed separately.</div></td><td><div class="svc-price">Premium only</div><div class="svc-note">+ % of ad spend</div></td></tr>
-      <tr><td><div class="svc-name">Account setup & audit</div><div class="svc-desc">One-time profile optimization across all platforms — bios, photos, highlights, and link-in-bio.</div></td><td><div class="svc-price">$200</div><div class="svc-note">One-time fee</div></td></tr>
-    </tbody>
-  </table>
 </section>
 
 <!-- PRICING -->
-<section class="pricing-section reveal" id="pricing">
-  <div class="section-label">Packages</div>
-  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Simple, flat monthly rates.</h2>
-  <p style="font-size:14px; color:var(--muted); max-width:480px; line-height:1.85;">No long-term contracts. Cancel any time with 14 days notice.</p>
-  <div class="pricing-grid">
+<section class="section" id="pricing">
+  <div class="eyebrow reveal">Packages</div>
+  <h2 class="section-h reveal">Flat monthly rates.<br>No surprises.</h2>
+  <p class="section-sub reveal">Month-to-month packages built for golf courses that want consistent content without adding work to their staff.</p>
+  <div class="pricing-grid reveal">
     <div class="pkg">
       <div class="pkg-tier">Starter</div>
       <div class="pkg-price">$650</div>
       <div class="pkg-mo">per month</div>
       <div class="pkg-features">
-        <div class="pf">8 posts per month</div>
-        <div class="pf">Instagram & Facebook</div>
-        <div class="pf">Captions written & scheduled</div>
-        <div class="pf">Content calendar approval</div>
+        <div class="pf"><span class="pf-dot">◆</span>8 posts per month</div>
+        <div class="pf"><span class="pf-dot">◆</span>Instagram & Facebook</div>
+        <div class="pf"><span class="pf-dot">◆</span>Captions written & scheduled</div>
+        <div class="pf"><span class="pf-dot">◆</span>Content calendar approval</div>
+        <div class="pf"><span class="pf-dot">◆</span>Monthly report</div>
       </div>
       <a href="#contact" class="pkg-btn">Get started</a>
     </div>
-    <div class="pkg featured">
+    <div class="pkg pkg-featured">
       <div class="pkg-badge">Most popular</div>
       <div class="pkg-tier">Growth</div>
       <div class="pkg-price">$1,200</div>
       <div class="pkg-mo">per month</div>
       <div class="pkg-features">
-        <div class="pf">Everything in Starter</div>
-        <div class="pf">16 posts per month</div>
-        <div class="pf">Instagram, Facebook & TikTok</div>
-        <div class="pf">Monthly on-site content shoot</div>
-        <div class="pf">4 Reels or TikTok videos</div>
-        <div class="pf">Comment & DM management</div>
-        <div class="pf">Monthly performance report</div>
+        <div class="pf"><span class="pf-dot">◆</span>Everything in Starter</div>
+        <div class="pf"><span class="pf-dot">◆</span>16 posts per month</div>
+        <div class="pf"><span class="pf-dot">◆</span>Instagram, Facebook & TikTok</div>
+        <div class="pf"><span class="pf-dot">◆</span>Monthly on-site content shoot</div>
+        <div class="pf"><span class="pf-dot">◆</span>4 Reels or TikTok videos</div>
+        <div class="pf"><span class="pf-dot">◆</span>Comment & DM management</div>
       </div>
       <a href="#contact" class="pkg-btn">Get started</a>
     </div>
@@ -419,13 +576,13 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       <div class="pkg-price">$2,300</div>
       <div class="pkg-mo">per month</div>
       <div class="pkg-features">
-        <div class="pf">Everything in Growth</div>
-        <div class="pf">20+ posts per month</div>
-        <div class="pf">All platforms + YouTube Shorts</div>
-        <div class="pf">Two on-site shoots per month</div>
-        <div class="pf">8 Reels or TikTok videos</div>
-        <div class="pf">Paid ads management</div>
-        <div class="pf">Weekly performance reports</div>
+        <div class="pf"><span class="pf-dot">◆</span>Everything in Growth</div>
+        <div class="pf"><span class="pf-dot">◆</span>20+ posts per month</div>
+        <div class="pf"><span class="pf-dot">◆</span>All platforms + YouTube Shorts</div>
+        <div class="pf"><span class="pf-dot">◆</span>Two on-site shoots per month</div>
+        <div class="pf"><span class="pf-dot">◆</span>8 Reels or TikTok videos</div>
+        <div class="pf"><span class="pf-dot">◆</span>Paid ads management</div>
+        <div class="pf"><span class="pf-dot">◆</span>Weekly reports</div>
       </div>
       <a href="#contact" class="pkg-btn">Get started</a>
     </div>
@@ -433,169 +590,141 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
 </section>
 
 <!-- CUSTOM BUILDER -->
-<section class="builder-section reveal" id="builder">
-  <div class="builder-intro">
-    <div class="section-label">Custom package</div>
-    <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.75rem;">Request a custom quote.</h2>
-  </div>
-
-  <div class="builder-box">
+<section class="section section-alt" id="builder">
+  <div class="eyebrow reveal">Custom</div>
+  <h2 class="section-h reveal">Request a custom<br>quote.</h2>
+  <p class="section-sub reveal">Select the services you are interested in and send a quick request. We will review your course and follow up with a tailored recommendation.</p>
+  <div class="builder-wrap reveal">
     <div class="builder-head">
       <div>
-        <div class="builder-head-title">Build your request</div>
+        <div class="builder-head-title">Request custom quote</div>
         <div class="builder-head-sub">Click any row to include it in your custom quote request.</div>
       </div>
-      <div class="builder-total-wrap">
-        <div class="builder-total-lbl">Selected</div>
-        <div class="builder-total-num" id="bTotal">0</div>
-        <div class="builder-total-mo">services</div>
+      <div>
+        <div class="b-total-lbl">Selected</div>
+        <div class="b-total-num" id="bTotal">0</div>
+        <div class="b-total-mo">services</div>
       </div>
     </div>
 
-    <!-- Content -->
-    <div class="builder-category">
-      <span class="builder-category-label">Content</span>
-      <div class="builder-category-line"></div>
-    </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="On-site content creation" data-desc="Photo and video content captured at the course for social media use">
-      <div><div class="brow-name">On-site content creation</div><div class="brow-desc">Photo and video content captured at the course for social media use</div></div>
+    <div class="b-cat"><span class="b-cat-label">Content</span></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="200" data-name="Content creation" data-label="$200/mo">
+      <div><div class="brow-name">Content creation</div><div class="brow-desc">On-site photo and video shoot, once per month</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Short-form video" data-desc="Instagram Reels, TikToks, and vertical videos edited from course footage">
-      <div><div class="brow-name">Short-form video</div><div class="brow-desc">Instagram Reels, TikToks, and vertical videos edited from course footage</div></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="150" data-name="Short-form video — 4 videos" data-label="$150/mo">
+      <div><div class="brow-name">Short-form video — 4 videos</div><div class="brow-desc">Reels and TikToks edited and optimized for reach</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Photography" data-desc="Course photos, clubhouse content, event photos, and general social assets">
-      <div><div class="brow-name">Photography</div><div class="brow-desc">Course photos, clubhouse content, event photos, and general social assets</div></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="250" data-name="Short-form video — 8 videos" data-label="$250/mo">
+      <div><div class="brow-name">Short-form video — 8 videos</div><div class="brow-desc">Double the output — ideal for Premium-tier clients</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
-    <!-- Posting -->
-    <div class="builder-category">
-      <span class="builder-category-label">Posting & Management</span>
-      <div class="builder-category-line"></div>
-    </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Social media scheduling" data-desc="Captions written, posts scheduled, and content calendar organized for approval">
-      <div><div class="brow-name">Social media scheduling</div><div class="brow-desc">Captions written, posts scheduled, and content calendar organized for approval</div></div>
+    <div class="b-cat"><span class="b-cat-label">Posting & Scheduling</span></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="150" data-name="Post scheduling — 8 posts (Instagram & Facebook)" data-label="$150/mo">
+      <div><div class="brow-name">Post scheduling — 8 posts</div><div class="brow-desc">Instagram & Facebook, captions written and scheduled</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Platform management" data-desc="Instagram, Facebook, TikTok, and/or YouTube Shorts management depending on the course's needs">
-      <div><div class="brow-name">Platform management</div><div class="brow-desc">Instagram, Facebook, TikTok, and/or YouTube Shorts management depending on the course's needs</div></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="250" data-name="Post scheduling — 16 posts (Instagram, Facebook & TikTok)" data-label="$250/mo">
+      <div><div class="brow-name">Post scheduling — 16 posts</div><div class="brow-desc">Instagram, Facebook & TikTok, captions written and scheduled</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Community management" data-desc="Comment and DM monitoring so golfers receive timely responses">
-      <div><div class="brow-name">Community management</div><div class="brow-desc">Comment and DM monitoring so golfers receive timely responses</div></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="350" data-name="Post scheduling — 20+ posts (all platforms)" data-label="$350/mo">
+      <div><div class="brow-name">Post scheduling — 20+ posts</div><div class="brow-desc">All platforms including YouTube Shorts</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
-    <!-- Promotion -->
-    <div class="builder-category">
-      <span class="builder-category-label">Promotion</span>
-      <div class="builder-category-line"></div>
-    </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Tournament and event promotion" data-desc="Content for tournaments, outings, leagues, member events, and course announcements">
-      <div><div class="brow-name">Tournament and event promotion</div><div class="brow-desc">Content for tournaments, outings, leagues, member events, and course announcements</div></div>
+    <div class="b-cat"><span class="b-cat-label">Engagement & Reporting</span></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="100" data-name="Community management" data-label="$100/mo">
+      <div><div class="brow-name">Community management</div><div class="brow-desc">Daily comment and DM monitoring across all platforms</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Clubhouse and dining content" data-desc="Food, drinks, restaurant, patio, event space, and post-round experience content">
-      <div><div class="brow-name">Clubhouse and dining content</div><div class="brow-desc">Food, drinks, restaurant, patio, event space, and post-round experience content</div></div>
-      <div class="brow-price">Select</div>
-      <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
-    </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Paid ads management" data-desc="Facebook and Instagram advertising strategy, creative direction, and campaign management. Ad spend is separate.">
-      <div><div class="brow-name">Paid ads management</div><div class="brow-desc">Facebook and Instagram advertising strategy, creative direction, and campaign management. Ad spend is separate.</div></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="75" data-name="Monthly performance report" data-label="$75/mo">
+      <div><div class="brow-name">Monthly performance report</div><div class="brow-desc">Growth, reach, and engagement delivered monthly</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
-    <!-- Reporting -->
-    <div class="builder-category">
-      <span class="builder-category-label">Strategy & Reporting</span>
-      <div class="builder-category-line"></div>
-    </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Content strategy" data-desc="Monthly planning around course goals, events, promotions, and seasonal opportunities">
-      <div><div class="brow-name">Content strategy</div><div class="brow-desc">Monthly planning around course goals, events, promotions, and seasonal opportunities</div></div>
+    <div class="b-cat"><span class="b-cat-label">Add-ons</span></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="300" data-name="Paid ads management" data-label="$300/mo + ad spend">
+      <div><div class="brow-name">Paid ads management</div><div class="brow-desc">Facebook & Instagram campaigns — targeting, creative, optimization</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
-    <div class="brow" onclick="toggleRow(this)" data-name="Performance reporting" data-desc="Monthly or weekly reporting depending on the level of support needed">
-      <div><div class="brow-name">Performance reporting</div><div class="brow-desc">Monthly or weekly reporting depending on the level of support needed</div></div>
+    <div class="brow" onclick="toggleRow(this)" data-price="200" data-name="Account setup & audit (one-time)" data-label="$200 one-time" data-onetime="true">
+      <div><div class="brow-name">Account setup & audit</div><div class="brow-desc">One-time profile optimization across all platforms</div></div>
       <div class="brow-price">Select</div>
       <label class="tog"><input type="checkbox"><span class="tog-track"></span></label>
     </div>
 
-    <!-- Summary panel -->
     <div class="builder-summary" id="bSummary">
-      <div class="summary-inner">
-        <div class="summary-left">
-          <div class="summary-title">Selected services</div>
-          <div class="summary-lines" id="bSummaryLines"></div>
+      <div class="bs-left">
+        <div class="bs-title">Selected services</div>
+        <div id="bLines"></div>
+        <div class="bs-total-row">
+          <span class="bs-total-lbl">Monthly total</span>
+          <span class="bs-total-num" id="bSummaryTotal">$0</span>
         </div>
-        <div class="summary-right">
-          <div class="summary-right-inner">
-            <div class="summary-note">
-              <strong>What happens next</strong>
-              Hit "Email this request" and your email app will open with your selected services already listed. We'll review the request and follow up with a tailored recommendation.
-            </div>
-            <div class="summary-actions">
-              <a class="summary-btn-email" id="bEmailBtn" href="#">Email this request →</a>
-              <button class="summary-btn-reset" onclick="resetBuilder()">Start over</button>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="bs-right">
+        <div class="bs-note"><strong>What happens next</strong>Hit "Email this request" and your email app will open with your selected services already listed. We will review it and follow up with a tailored recommendation.</div>
+        <div class="bs-note"><strong>Direct email</strong>If your email app does not open, email us directly at caden@caddie-media.com.</div>
+        <a class="bs-email-btn" id="bEmailBtn" href="#">Email this request →</a>
+        <button class="bs-reset-btn" onclick="resetBuilder()">Start over</button>
       </div>
     </div>
 
     <div class="builder-foot">
-      <div class="builder-foot-note">Custom quote requests do not create a commitment. We'll follow up with details.</div>
-      <button class="builder-foot-btn" id="bQuoteBtn" onclick="generateQuote()" disabled>Request custom quote →</button>
+      <div class="builder-foot-note">Custom quote requests do not create a commitment. We follow up with details.</div>
+      <button class="builder-foot-btn" id="bBtn" onclick="generateQuote()" disabled>Request custom quote →</button>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="process-section reveal" id="process">
-  <div class="section-label">How it works</div>
-  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; line-height:1.1; margin-bottom:0.5rem;">From first conversation to first post in under a week.</h2>
-  <div class="process-steps">
-    <div class="pstep">
-      <div class="pstep-n">1</div>
-      <div class="pstep-title">Free audit</div>
-      <div class="pstep-desc">We review your current accounts and share an honest assessment of what's working and where the opportunities are. No charge, no obligation.</div>
+<section class="section" id="process">
+  <div class="eyebrow reveal">How it works</div>
+  <h2 class="section-h reveal">From first call<br>to first calendar.</h2>
+  <div class="process-grid reveal">
+    <div class="proc">
+      <div class="proc-n">1</div>
+      <div class="proc-title">Free audit</div>
+      <div class="proc-desc">We review your current accounts and share an honest assessment — what's working and where the opportunities are. No charge, no obligation.</div>
     </div>
-    <div class="pstep">
-      <div class="pstep-n">2</div>
-      <div class="pstep-title">Choose your services</div>
-      <div class="pstep-desc">Pick a package or build your own. We send a one-page proposal and a simple agreement within 48 hours.</div>
+    <div class="proc">
+      <div class="proc-n">2</div>
+      <div class="proc-title">Choose your plan</div>
+      <div class="proc-desc">Pick a package or request a custom quote. We send a simple proposal based on your course and goals.</div>
     </div>
-    <div class="pstep">
-      <div class="pstep-n">3</div>
-      <div class="pstep-title">Onboarding</div>
-      <div class="pstep-desc">We get access to your accounts, learn your brand, and share a content calendar for month one. You approve everything before it goes live.</div>
+    <div class="proc">
+      <div class="proc-n">3</div>
+      <div class="proc-title">Onboarding</div>
+      <div class="proc-desc">We get access to your accounts, learn your brand, and share a content calendar for month one. You approve everything before it goes live.</div>
     </div>
-    <div class="pstep">
-      <div class="pstep-n">4</div>
-      <div class="pstep-title">Ongoing</div>
-      <div class="pstep-desc">Shoots, edits, posts, and engagement — handled every week. Monthly report delivered to your inbox.</div>
+    <div class="proc">
+      <div class="proc-n">4</div>
+      <div class="proc-title">Ongoing</div>
+      <div class="proc-desc">Shoots, edits, posts, and engagement — handled every week. Monthly report delivered to your inbox.</div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq-section reveal" id="faq">
-  <div class="section-label">Questions</div>
-  <h2 style="font-family:'DM Serif Display',serif; font-size:34px; font-weight:400; margin-bottom:0.5rem;">FAQ</h2>
-  <div class="faq-wrap">
+<section class="section section-alt" id="faq">
+  <div class="eyebrow reveal">Questions</div>
+  <h2 class="section-h reveal">FAQ</h2>
+  <div class="faq-wrap reveal">
     <div class="faq-item open">
       <div class="faq-q" onclick="toggleFaq(this)">Do I have to commit to a long-term contract? <span class="faq-icon">+</span></div>
-      <div class="faq-a">No. Everything is month-to-month. Cancel with 14 days written notice, no questions asked. We'd rather keep clients because the work is good, not because they're locked in.</div>
+      <div class="faq-a">No. Everything is month-to-month. Cancel with 14 days written notice, no questions asked. We'd rather keep clients because the work is good — not because they're locked in.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Do you need to visit the course in person? <span class="faq-icon">+</span></div>
@@ -603,34 +732,34 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Can I see posts before they go live? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Always. We build a content calendar at the start of each month and share it with you for approval. Nothing gets posted without your sign-off. You have 48 hours to request changes prior to a post going live.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">What if I already have someone posting for us? <span class="faq-icon">+</span></div>
-      <div class="faq-a">We can work alongside your existing team or take over entirely — whatever makes more sense. Some clients hand everything to us, others just want content creation and keep posting themselves.</div>
+      <div class="faq-a">Always. We build a content calendar at the start of each month and share it with you for approval. Nothing gets posted without your sign-off. You have 48 hours to request changes.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How quickly will we see results? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Most accounts see measurable engagement improvement within 30 days when posting becomes consistent. Follower growth typically accelerates in months 2 and 3.</div>
+      <div class="faq-a">Every course is different, so we focus first on building a consistent, high-quality presence. We share reporting so you can track what is working over time.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What if I already have someone posting for us? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We can work alongside your team or take over entirely — whatever makes more sense. Some clients hand everything to us, others just want content creation while their staff handles posting.</div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
+<section class="section section-dark" id="contact">
   <div class="contact-grid">
     <div class="contact-left reveal">
-      <div class="section-label" style="color:var(--gold2);">Get in touch</div>
+      <div class="eyebrow">Get in touch</div>
       <h2>Let's talk about your course.</h2>
-      <p>Tell us where you're at and what you're looking for. We'll come back with a free audit and a recommendation — no pressure.</p>
-      <div class="contact-details">
-        <div><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:hello@caddie-media.com">hello@caddie-media.com</a></div></div>
-        <div><div class="cd-label">Based in</div><div class="cd-val">Las Vegas, NV</div></div>
-        <div><div class="cd-label">Response time</div><div class="cd-val">Within 1-2 business days</div></div>
+      <p>Tell us where you're at and what you're looking for. We'll get back to you within one business day.</p>
+      <div>
+        <div class="cd-item"><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:caden@caddie-media.com">caden@caddie-media.com</a></div></div>
+        <div class="cd-item"><div class="cd-label">Based in</div><div class="cd-val">Las Vegas, NV</div></div>
+        <div class="cd-item"><div class="cd-label">Response time</div><div class="cd-val">Within 1–2 business days</div></div>
       </div>
     </div>
     <div class="reveal">
-      <div class="contact-form" id="cForm">
+      <div class="cf" id="cForm">
         <div class="cf-row">
           <div><label class="cf-label">Your name</label><input class="cf-input" id="cfName" placeholder="Your name"></div>
           <div><label class="cf-label">Course name</label><input class="cf-input" id="cfCourse" placeholder="Your golf course"></div>
@@ -643,48 +772,71 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
             <option>Growth package — $1,200/mo</option>
             <option>Premium package — $2,300/mo</option>
             <option>Custom package</option>
+            <option>Just the free audit for now</option>
           </select>
         </div>
         <div><label class="cf-label">Anything else</label><textarea class="cf-input" id="cfNotes" placeholder="Current social accounts, goals, questions — anything helps."></textarea></div>
-        <button class="cf-submit" id="cfSubmitBtn" onclick="submitContact()">Send message →</button>
-        <div class="cf-direct"> Or email us directly at<a href="mailto:hello@caddie-media.com">hello@caddie-media.com</a> </div>
-        <div id="cfError" style="display:none; font-size:12px; color:#e07a5f; margin-top:0.4rem;"></div>
+        <button class="cf-submit" onclick="submitContact()">Send message →</button>
+        <div class="cf-direct">If the button does not open your email app, email us directly at <a href="mailto:caden@caddie-media.com">caden@caddie-media.com</a>.</div>
+        <div class="cf-error" id="cfError"></div>
       </div>
       <div class="cf-success" id="cSuccess">
-       <strong style="display:block; color:var(--gold2); margin-bottom:0.4rem;">
-    Your email client is opening.
-</strong>
-A pre-filled email is ready to send—just hit send and we'll get back to you within 1–2 business days. If nothing happens, you can email us directly at
-<a href="mailto:hello@caddie-media.com" style="color:var(--gold2); font-weight:500;">
-    hello@caddie-media.com
-</a>.
+        <strong style="display:block; color:var(--orange); margin-bottom:0.4rem;">Your email client is opening.</strong>
+        A pre-filled email is ready to send — just hit send and we'll get back to you within 1–2 business days. If nothing happens, email us directly at <a href="mailto:caden@caddie-media.com" style="color:var(--orange); font-weight:500;">caden@caddie-media.com</a>.
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">Caddie<em>Media</em></div>
-  <div class="footer-note">© 2026 Caddie Media · Las Vegas, NV · hello@caddie-media.com</div>
+  <div class="footer-logo">Caddie<span>.</span>Media</div>
+  <div class="footer-note">© 2026 Caddie Media · Las Vegas, NV · caden@caddie-media.com</div>
 </footer>
 
 <script>
+// Nav switching between dark/light based on scroll
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  const heroH = document.querySelector('.hero').offsetHeight;
+  if (window.scrollY > heroH - 80) {
+    navEl.className = 'light nav-light';
+    navEl.querySelector('.logo').className = 'logo logo-light';
+    navEl.querySelector('.nav-btn').className = 'nav-btn nav-btn-light';
+  } else {
+    navEl.className = 'dark nav-dark';
+    navEl.querySelector('.logo').className = 'logo logo-dark';
+    navEl.querySelector('.nav-btn').className = 'nav-btn nav-btn-dark';
+  }
+});
+
+// Hero fade in
+setTimeout(() => {
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 120);
+  });
+}, 100);
+
 // Scroll reveal
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-// Hero fade in
-setTimeout(() => {
-  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-    setTimeout(() => el.classList.add('in'), i * 100);
-  });
-}, 100);
+// Feed animation — pulse cells in and out
+const cells = document.querySelectorAll('.feed-cell');
+const colors = ['#1A3018','#2E1A0A','#0A1E2E','#2A1428','#0E2218','#1E1408','#E85D26','#3A2810','#0A2820'];
+function animateFeed() {
+  const idx = Math.floor(Math.random() * cells.length);
+  const colorIdx = Math.floor(Math.random() * colors.length);
+  cells[idx].style.background = colors[colorIdx];
+  cells[idx].style.opacity = '0.5';
+  setTimeout(() => { cells[idx].style.opacity = '1'; }, 300);
+}
+setInterval(animateFeed, 800);
 
-// ── CUSTOM QUOTE SELECTOR ──
+// Custom quote selector
 function toggleRow(row) {
-  const cb = row.querySelector('input[type="checkbox"]');
+  const cb = row.querySelector('input');
   cb.checked = !cb.checked;
   row.classList.toggle('selected', cb.checked);
   const priceEl = row.querySelector('.brow-price');
@@ -692,30 +844,26 @@ function toggleRow(row) {
   priceEl.classList.toggle('on', cb.checked);
   updateTotal();
 }
-
 function updateTotal() {
   const count = document.querySelectorAll('.brow input:checked').length;
   document.getElementById('bTotal').textContent = count.toString();
-  document.querySelector('.builder-total-mo').textContent = count === 1 ? 'service' : 'services';
-  document.getElementById('bQuoteBtn').disabled = count === 0;
+  const mo = document.querySelector('.b-total-mo');
+  if (mo) mo.textContent = count === 1 ? 'service' : 'services';
+  document.getElementById('bBtn').disabled = count === 0;
   document.getElementById('bSummary').classList.remove('show');
 }
-
 function generateQuote() {
   const rows = [...document.querySelectorAll('.brow input:checked')];
   if (!rows.length) return;
-
-  let linesHTML = '';
+  let html = '';
   const selectedLines = rows.map(cb => {
     const row = cb.closest('.brow');
     const name = row.dataset.name;
-    const desc = row.dataset.desc;
-    linesHTML += `<div class="sline"><span><strong>${name}</strong><br><small>${desc}</small></span></div>`;
+    const desc = row.querySelector('.brow-desc')?.textContent.trim() || '';
+    html += `<div class="bs-line"><strong>${name}</strong><small>${desc}</small></div>`;
     return `- ${name}: ${desc}`;
   });
-
-  document.getElementById('bSummaryLines').innerHTML = linesHTML;
-
+  document.getElementById('bLines').innerHTML = html;
   const emailBody = [
     'Hello Caddie Media,',
     '',
@@ -736,26 +884,23 @@ function generateQuote() {
     '',
     'Thank you.'
   ].join('\n');
-
-  const emailHref = `mailto:hello@caddie-media.com?subject=${encodeURIComponent('Custom Package Request — Caddie Media')}&body=${encodeURIComponent(emailBody)}`;
-  document.getElementById('bEmailBtn').href = emailHref;
-
+  document.getElementById('bEmailBtn').href = `mailto:caden@caddie-media.com?subject=${encodeURIComponent('Custom Package Request — Caddie Media')}&body=${encodeURIComponent(emailBody)}`;
   document.getElementById('bSummary').classList.add('show');
   document.getElementById('bSummary').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
-
 function resetBuilder() {
-  document.querySelectorAll('.brow').forEach(row => {
-    row.classList.remove('selected');
-    row.querySelector('input').checked = false;
-    const priceEl = row.querySelector('.brow-price');
+  document.querySelectorAll('.brow').forEach(r => {
+    r.classList.remove('selected');
+    r.querySelector('input').checked = false;
+    const priceEl = r.querySelector('.brow-price');
     priceEl.textContent = 'Select';
     priceEl.classList.remove('on');
   });
   document.getElementById('bTotal').textContent = '0';
-  document.querySelector('.builder-total-mo').textContent = 'services';
+  const mo = document.querySelector('.b-total-mo');
+  if (mo) mo.textContent = 'services';
   document.getElementById('bSummary').classList.remove('show');
-  document.getElementById('bQuoteBtn').disabled = true;
+  document.getElementById('bBtn').disabled = true;
 }
 
 // FAQ
@@ -766,7 +911,7 @@ function toggleFaq(el) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Contact form — opens pre-filled email in new tab
+// Contact form
 function submitContact() {
   const name = document.getElementById('cfName').value.trim();
   const course = document.getElementById('cfCourse').value.trim();
@@ -774,32 +919,18 @@ function submitContact() {
   const interest = document.getElementById('cfInterest').value;
   const notes = document.getElementById('cfNotes').value.trim();
   const errorEl = document.getElementById('cfError');
-
   if (!name || !email) {
     errorEl.textContent = 'Please fill in at least your name and email.';
     errorEl.style.display = 'block';
     return;
   }
   errorEl.style.display = 'none';
-
   const subject = `Inquiry from ${name} — Caddie Media`;
-  const body = [
-    `Name: ${name}`,
-    `Course: ${course || 'Not provided'}`,
-    `Email: ${email}`,
-    `Interested in: ${interest}`,
-    `Notes: ${notes || 'None'}`,
-  ].join('\n');
-
-  const mailtoLink = `mailto:hello@caddie-media.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.open(mailtoLink, '_blank');
-
+  const body = [`Name: ${name}`, `Course: ${course || 'Not provided'}`, `Email: ${email}`, `Interested in: ${interest}`, `Notes: ${notes || 'None'}`].join('\n');
+  window.open(`mailto:caden@caddie-media.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
   document.getElementById('cForm').style.display = 'none';
   document.getElementById('cSuccess').classList.add('show');
 }
-
-// Initialize builder total for pre-selected custom strategy row
-updateTotal();
 </script>
 </body>
 </html>
