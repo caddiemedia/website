@@ -486,10 +486,6 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
         <div class="who-item-dot"></div>
         <div class="who-item-text"><strong>Content approval before posting</strong>You review and approve everything before it goes live. Always.</div>
       </div>
-      <div class="who-item">
-        <div class="who-item-dot"></div>
-        <div class="who-item-text"><strong>One point of contact</strong>You deal with Caden directly. Not an account manager, not a rotating team.</div>
-      </div>
     </div>
   </div>
 </section>
@@ -676,7 +672,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       </div>
       <div class="bs-right">
         <div class="bs-note"><strong>What happens next</strong>Hit "Email this request" and your email app will open with your selected services already listed. We will review it and follow up with a tailored recommendation.</div>
-        <div class="bs-note"><strong>Direct email</strong>If your email app does not open, email us directly at caden@caddie-media.com.</div>
+        <div class="bs-note"><strong>Direct email</strong>If your email app does not open, email us directly at hello@caddie-media.com.</div>
         <a class="bs-email-btn" id="bEmailBtn" href="#">Email this request →</a>
         <button class="bs-reset-btn" onclick="resetBuilder()">Start over</button>
       </div>
@@ -753,7 +749,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
       <h2>Let's talk about your course.</h2>
       <p>Tell us where you're at and what you're looking for. We'll get back to you within one business day.</p>
       <div>
-        <div class="cd-item"><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:caden@caddie-media.com">caden@caddie-media.com</a></div></div>
+        <div class="cd-item"><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:hello@caddie-media.com">hello@caddie-media.com</a></div></div>
         <div class="cd-item"><div class="cd-label">Based in</div><div class="cd-val">Las Vegas, NV</div></div>
         <div class="cd-item"><div class="cd-label">Response time</div><div class="cd-val">Within 1–2 business days</div></div>
       </div>
@@ -777,12 +773,12 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
         </div>
         <div><label class="cf-label">Anything else</label><textarea class="cf-input" id="cfNotes" placeholder="Current social accounts, goals, questions — anything helps."></textarea></div>
         <button class="cf-submit" onclick="submitContact()">Send message →</button>
-        <div class="cf-direct">If the button does not open your email app, email us directly at <a href="mailto:caden@caddie-media.com">caden@caddie-media.com</a>.</div>
+        <div class="cf-direct">If the button does not open your email app, email us directly at <a href="mailto:hello@caddie-media.com">hello@caddie-media.com</a>.</div>
         <div class="cf-error" id="cfError"></div>
       </div>
       <div class="cf-success" id="cSuccess">
         <strong style="display:block; color:var(--orange); margin-bottom:0.4rem;">Your email client is opening.</strong>
-        A pre-filled email is ready to send — just hit send and we'll get back to you within 1–2 business days. If nothing happens, email us directly at <a href="mailto:caden@caddie-media.com" style="color:var(--orange); font-weight:500;">caden@caddie-media.com</a>.
+        A pre-filled email is ready to send — just hit send and we'll get back to you within 1–2 business days. If nothing happens, email us directly at <a href="mailto:hello@caddie-media.com" style="color:var(--orange); font-weight:500;">hello@caddie-media.com</a>.
       </div>
     </div>
   </div>
@@ -790,7 +786,7 @@ footer { background: var(--black); padding: 1.5rem 3rem; display: flex; justify-
 
 <footer>
   <div class="footer-logo">Caddie<span>.</span>Media</div>
-  <div class="footer-note">© 2026 Caddie Media · Las Vegas, NV · caden@caddie-media.com</div>
+  <div class="footer-note">© 2026 Caddie Media · Las Vegas, NV · hello@caddie-media.com</div>
 </footer>
 
 <script>
@@ -884,7 +880,7 @@ function generateQuote() {
     '',
     'Thank you.'
   ].join('\n');
-  document.getElementById('bEmailBtn').href = `mailto:caden@caddie-media.com?subject=${encodeURIComponent('Custom Package Request — Caddie Media')}&body=${encodeURIComponent(emailBody)}`;
+  document.getElementById('bEmailBtn').href = `mailto:hello@caddie-media.com?subject=${encodeURIComponent('Custom Package Request — Caddie Media')}&body=${encodeURIComponent(emailBody)}`;
   document.getElementById('bSummary').classList.add('show');
   document.getElementById('bSummary').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -927,7 +923,7 @@ function submitContact() {
   errorEl.style.display = 'none';
   const subject = `Inquiry from ${name} — Caddie Media`;
   const body = [`Name: ${name}`, `Course: ${course || 'Not provided'}`, `Email: ${email}`, `Interested in: ${interest}`, `Notes: ${notes || 'None'}`].join('\n');
-  window.open(`mailto:caden@caddie-media.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+  window.open(`mailto:hello@caddie-media.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
   document.getElementById('cForm').style.display = 'none';
   document.getElementById('cSuccess').classList.add('show');
 }
